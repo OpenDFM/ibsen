@@ -26,8 +26,6 @@ def cosine_score_normalizer(val: float) -> float:
 PROFILE_ROOT = "data/profile"
 CORPUS_ROOT = "data/corpus"
 
-# Based on 
-# https://github.com/hwchase17/langchain/blob/master/langchain/experimental/generative_agents/generative_agent.py
 class GenerativeActor:
     def __init__(
         self, 
