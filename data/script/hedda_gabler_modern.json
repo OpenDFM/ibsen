@@ -1,0 +1,296 @@
+{
+    "title": "Hedda Gai's Press Conference",
+    "note": "Modern re-create of Hedda Gabler",
+    "intro": "You are Edward Helson, a reporter from the publication \"New Left Review\". You are going to attend a press conference hold by Hedda Gai. ",
+    "actors": {
+        "Hedda Gai": {
+            "name": "Hedda Gai",
+            "description": "Hedda Gai, well-educated and hailing from a once-prominent but now declining family, is vying for the presidency to uphold her family's legacy. In public, she carefully manages her image, though an inherent arrogance often surfaces in her conversations. When faced with policy-related queries, she responds with diplomatic finesse, using terms like feminism and freedom to deflect criticism. In handling unreasonable or impolite questions, she employs subtle sarcasm and counterquestions. However, beneath her outward confidence lies a complex and vulnerable interior. Despite appearing advantaged, her strengths also serve as constraints. There's a part of her longing to break free from these constraints, which becomes apparent only under persistent questioning. For instance, she is frustrated with her mediocre and selfish husband, secretly admires Thea Fu's courage, and yearns for the passion and freedom embodied by Eilert Luo. These aspects unfold through her relationships with other characters and her emotional connections and imaginings about them.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president.",
+                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
+                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a frequent visitor to the Hedda Gai household, is a chief judge secretly harboring desires for Hedda Gai's body.",
+                "Edward Helson": "Edward Helson, a reporter.",
+                "John": "John, a reporter.",
+                "Peter": "Peter, a reporter.",
+                "Mary": "Mary, a reporter."
+            }
+        },
+        "George Dai": {
+            "name": "George Dai",
+            "description": "George Dai is an economics professor at Harvard University, a dedicated academic, and an honest while still selfish man. He loves his wife, Hedda Gai, and feels that he has both his career and family under control. George Dai is also a somewhat hesitant individual and tends to stutter when speaking.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, the wife of George Dai, a female politician, is running for president.",
+                "George Dai": "George Dai, a macroeconomist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
+                "Eilert Luo": "Eilert Luo, a peer and competitor of George Dai, a microeconomist, and an aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a frequent visitor to the household, is a chief judge.",
+                "Edward Helson": "Edward Helson, a reporter.",
+                "John": "John, a reporter.",
+                "Peter": "Peter, a reporter.",
+                "Mary": "Mary, a reporter."
+            }
+        },
+        "Brack": {
+            "name": "Brack",
+            "description": "Brack sees himself as a cunning and manipulative man, who enjoys playing power games with those around him.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president. Brack secretly harbors desires for Hedda Gai's body.",
+                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
+                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a chief judge in his 50s.",
+                "Edward Helson": "Edward Helson, a reporter.",
+                "John": "John, a reporter.",
+                "Peter": "Peter, a reporter.",
+                "Mary": "Mary, a reporter."
+            }
+        },
+        "Berta": {
+            "name": "Berta",
+            "description": "Berta is Hedda Gai's personal assistant and is responsible for keeping track of Hedda Gai's schedule.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president.",
+                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai."
+            }
+        },
+        "John": {
+            "name": "John",
+            "description": "John is a journalist in the economic field, working for the publication \"Economic World\". His reporting tends to be conservative, with a right-leaning political perspective.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
+                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
+                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a chief judge.",
+                "Edward Helson": "Edward Helson, the leftist economic reporter, a friend of John.",
+                "John": "John, an economist reporter.",
+                "Peter": "Peter, a political reporter.",
+                "Mary": "Mary, an entertainment reporter."
+            }
+        },
+        "Peter": {
+            "name": "Peter",
+            "description": "Peter is a political journalist working for the newspaper \"The Storm\", aiming to provide objective and truthful reporting without a particular bias towards the left or right.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
+                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
+                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a chief judge.",
+                "Edward Helson": "Edward Helson, a leftist economic reporter.",
+                "John": "John, a rightist economist reporter.",
+                "Peter": "Peter, a political reporter.",
+                "Mary": "Mary, an entertainment reporter, disapproved by Peter."
+            }
+        },
+        "Mary": {
+            "name": "Mary",
+            "description": "Mary is an entertainment journalist working for \"Supernova Entertainment\", a publication that tends to focus on sensational and flamboyant stories. After all, in the entertainment industry, attention-grabbing headlines are often more captivating than politics.",
+            "relations": {
+                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
+                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
+                "Berta": "Berta, the personal assistant of Hedda Gai.",
+                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
+                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
+                "Brack": "Brack, a chief judge.",
+                "Edward Helson": "Edward Helson, an economic reporter.",
+                "John": "John, an economist reporter.",
+                "Peter": "Peter, a political reporter.",
+                "Mary": "Mary, an entertainment reporter."
+            }
+        }
+    },
+    "acts": [
+        [
+            {
+                "title": "Act 1 - Hotel corridor",
+                "note": "An empty act",
+                "place": "Hotel corridor",
+                "background": "",
+                "actors": [],
+                "goals": [],
+                "player_in": "",
+                "player_out": ""
+            },
+            {
+                "title": "Act 1 - Hotel lobby",
+                "note": "Hedda and George is chatting in the lobby",
+                "place": "Lobby",
+                "background": "Before the press conference commemorating Eilert Luo begins, in the hotel lobby. Assistant Berta rushes out of the lobby with the public relations team, leaving only Hedda Gai and George Dai.",
+                "actors": [
+                    "Hedda Gai",
+                    "George Dai",
+                    "Berta"
+                ],
+                "goals": [
+                    "Hedda Gai chatted casually with George Dai about past events.",
+                    "When the chat went on for too long, or when the conversation touched on topics related to George Dai wanting Hedda Gai to have a child, assistant Berta rushed into the lounge, interrupting the conversation. She informed Hedda and George that the press conference was about to start and urged them to hurry over.",
+                    "Hedda Gai and George Dai left the lobby."
+                ],
+                "player_in": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation.",
+                "player_out": "Edward Helson leaves the lobby."
+            },
+            {
+                "title": "Act 1 - Press conference hall",
+                "note": "Reporters are chatting in the hall",
+                "place": "Press conference hall",
+                "background": "Before the press conference to mourn Eilert Luo, many reporters and citizens have already waiting in the hall. Some reporters begin to chat about their expectations for this press conference.",
+                "actors": [
+                    "John",
+                    "Peter",
+                    "Mary"
+                ],
+                "goals": [
+                    "Before the press conference began, reporters chatted with each other."
+                ],
+                "player_in": "Reporter Edward Helson enters the hall.",
+                "player_out": "Reporter Edward Helson leaves the hall."
+            }
+        ],
+        [
+            {
+                "title": "Act 2 - Hotel corridor",
+                "note": "An empty act",
+                "place": "Hotel corridor",
+                "background": "",
+                "actors": [],
+                "goals": [],
+                "player_in": "",
+                "player_out": ""
+            },
+            {
+                "title": "Act 2 - Press conference hall",
+                "note": "The press conference begins",
+                "place": "Press conference hall",
+                "background": "The press conference finally begins. Hedda Gai and George Dai walk up to the podium together.",
+                "actors": [
+                    "Hedda Gai",
+                    "George Dai",
+                    "John",
+                    "Peter",
+                    "Mary"
+                ],
+                "goals": [
+                    "Hedda Gai began to speak, revealing her shock and sadness over Eilert Luo's suicide.",
+                    "Reporters present, including John, Peter, Mary, etc., started asking Hedda Gai questions related to Eilert Luo's suicide. Hedda Gai responds to the reporters' questions, momentarily slipping and revealing emotions towards Eilert Luo, but quickly covered it up."
+                ],
+                "player_in": "Reporter Edward Helson enters the hall.",
+                "player_out": "Reporter Edward Helson leaves the hall."
+            }
+        ],
+        [
+            {
+                "title": "Act 3 - Hotel corridor",
+                "note": "An empty act",
+                "place": "Hotel corridor",
+                "background": "",
+                "actors": [],
+                "goals": [],
+                "player_in": "",
+                "player_out": ""
+            },
+            {
+                "title": "Act 3 - Press conference hall",
+                "note": "The press conference has begun for a while",
+                "place": "Press conference hall",
+                "background": "Suddenly, the press conference is filled with the sound of ringing phones. It turns out that Thea Fu has issued a statement, stating that the research conducted by Eilert Luo is a collaborative effort, and she still possesses notes from the research process, making it highly likely to reconstruct Eilert Luo's work. Thea Fu has already provided the notes to Harvard University, and Harvard hopes that George Dai, with the closest expertise, can take over the research project.",
+                "actors": [
+                    "Hedda Gai",
+                    "George Dai",
+                    "John",
+                    "Peter",
+                    "Mary"
+                ],
+                "goals": [
+                    "Thea Fu's statement caused a commotion on the scene. Journalists like John, Peter, Mary, and others deviated from their original plan of questioning Hedda Gai, and directly confronted George Dai about the possibility of taking over Eilert Luo's research - that would mean a support for Thea. Internally, George Dai knew that this research contradicted Hedda Gai's policies, but he also recognized its societal value. Upon hearing the news, he initially appeared shocked, followed by a mix of joy and uncertainty, unsure whether to take on the research.", 
+                    "In an attempt to maintain a facade of tranquility, Hedda Gai had to reassure the journalists that both she and her husband only served the public interest. However, George Dai took it at face value and immediately expressed his commitment to completing the research based on Thea Fu's notes, causing a stir in the room. Reporters all have astonished by the decision of George Dai.",
+                    "Hedda Gai reluctantly announced an end to today's press conference and left the scene. At that moment, reporter Mary suddenly asked if she was pregnant. Hedda Gai, rarely displaying anger, retorted that such a question was quite inappropriate."
+                ],
+                "player_in": "Reporter Edward Helson enters the hall.",
+                "player_out": "Reporter Edward Helson leaves the hall."
+            }
+        ],
+        [
+            {
+                "title": "Act 4 - Hotel corridor",
+                "note": "An empty act",
+                "place": "Hotel corridor",
+                "background": "",
+                "actors": [],
+                "goals": [],
+                "player_in": "",
+                "player_out": ""
+            },
+            {
+                "title": "Act 4 - Press conference backstage",
+                "note": "After the conference, Hedda talks with Brack",
+                "place": "Press conference backstage",
+                "background": "Hedda briskly enters the backstage of the press conference, only to find Brack waiting for her. Brack intercepts Hedda, with George Dai following closely behind, intending to join their conversation. However, George's phone rings, prompting him to answer it and walk to another corner alone.",
+                "actors": [
+                    "Hedda Gai",
+                    "Brack"
+                ],
+                "goals": [
+                    "Brack showed disdain for the developments at the press conference. Hedda, wanting to ignore Brack, was halted when he mentioned news about Eilert Luo.",
+                    "Brack informed Hedda that Eilert Luo's death was not honorable – he shot himself in the abdomen during suicide. Brack also hinted to Hedda that he knew the gun Eilert used for suicide was given to him by her, implying a potential threat."
+                ],
+                "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
+                "player_out": "Reporter Edward Helson leaves the backstage."
+            },
+            {
+                "title": "Act 4 - Press conference hall",
+                "note": "After the conference, reporters chat with each other",
+                "place": "Press conference hall",
+                "background": "The press conference rushes to the end.",
+                "actors": [
+                    "John",
+                    "Peter",
+                    "Mary"
+                ],
+                "goals": [
+                    "The reporters remained at the scene exchanged thoughts on the just-concluded press conference. They continued their discussions until staff reminded them to clear the venue, at which point the journalists departed."
+                ],
+                "player_in": "Reporter Edward Helson enters the hall.",
+                "player_out": "Reporter Edward Helson leaves the hall."
+            }
+        ],
+        [
+            {
+                "title": "Act 5 - Hotel corridor",
+                "note": "An empty act",
+                "place": "Hotel corridor",
+                "background": "",
+                "actors": [],
+                "goals": [],
+                "player_in": "",
+                "player_out": ""
+            },
+            {
+                "title": "Act 5 - Press conference backstage",
+                "note": "George Dai joins the conversation",
+                "place": "Press conference backstage",
+                "background": "At this moment of confrontation between Brack and Hedda Gai, George concludes his phone call and walks towards the two of them.",
+                "actors": [
+                    "Hedda Gai",
+                    "Brack",
+                    "George Dai"
+                ],
+                "goals": [
+                    "George Dai excitedly informed Hedda that Thea Fu had prepared a research room for him and he was eager to start his research immediately. Hedda asked, \"What about me?\" George affectionately told her not to miss him too much.",
+                    "Brack suggested taking care of Hedda Gai during this time, with George's approval. Unable to bear it any longer, Hedda Gai forcefully pushed away George and ran offstage."
+                ],
+                "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
+                "player_out": "Reporter Edward Helson leaves the backstage."
+            }
+        ]
+    ]
+}

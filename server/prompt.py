@@ -36,6 +36,34 @@ After these events, what would {{name}} think of {{target}}? Please summarize {{
 {{~/assistant}}
 """
 
+PROMPT_INFLUENCE = """
+{{#system~}}
+Assuming that you are role-playing a drama character named "{{name}}". The following description is the memory entry that you have already known. If the description could directly, evidently influence the images and behaviors of {{name}}, output 1; otherwise output 0. You should only output an integer. 
+{{~/system}}
+
+{{#user~}}
+{{name}} comes from a prominent background, with his/her father being a general, often referred to in the media as "the general's child". 
+
+{{~/user}}
+{{#assistant~}}
+1
+{{~/assistant}}
+
+{{#user~}}
+{{name}} has a personal assistant who records all the agenda of {{name}}.
+{{~/user}}
+{{#assistant~}}
+0
+{{~/assistant}}
+
+{{#user~}}
+{{memory}}
+{{~/user}}
+{{#assistant~}}
+{{gen 'rate'}}
+{{~/assistant}}
+"""
+
 PROMPT_EVENT_MONOLOGUE = """
 {{#system~}}
 {{name}} is a drama character. {{instruction}}

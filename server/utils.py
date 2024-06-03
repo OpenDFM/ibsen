@@ -1,8 +1,145 @@
 import json
 import re
-from typing import Dict, List, Tuple
-from langchain.schema import Document
+from copy import deepcopy
+from datetime import datetime
+from time import sleep
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
 import pandas as pd
+from langchain.schema import BaseRetriever, Document
+from langchain.vectorstores.base import VectorStore
+from pydantic import BaseModel, Field
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+def _get_hours_passed(time: datetime, ref_time: datetime) -> float:
+    """Get the hours passed between two datetime objects."""
+    return (time - ref_time).total_seconds() / 3600
+
+class FAISSRetriever(BaseRetriever, BaseModel):
+    """
+    Retriever combining similarity with recency.
+    Based on: https://github.com/QuangBK/generativeAgent_LLM/blob/main/server/time_weighted_retriever.py
+    """
+
+    vectorstore: VectorStore
+    "vectorstore (VectorStore): VectorStore object to store the documents"
+
+    k: int = 5
+    "k (int, optional): Number of retrieved documents"
+
+    time_decay: float = 0.01
+    "time_decay (float, optional): Exponential decay factor used as `(1.0 - decay_rate) ** hrs_passed`"
+
+    search_kwargs: dict = Field(default_factory=lambda: dict(score_threshold=0.4))
+    "**search_kwargs: Other search arguments used by `vectorstore.similarity_search_with_relevance_scores`"
+
+
+    def get_recency_score(self, document: Document, current_time: datetime) -> float:
+        "Return the recency scores for a document."
+        hours_passed = _get_hours_passed(
+            current_time,
+            document.metadata["last_accessed_at"],
+        )
+        hours_passed = max(hours_passed, 0)
+        score_time = (1.0 - self.time_decay) ** hours_passed
+        score_time = min(score_time, 1)
+        return score_time
+
+    def get_tfidf_scores(self, query: str, documents: List[Document]) -> List[float]:
+        if len(documents) == 0:
+            return []
+        vectorizer = TfidfVectorizer()
+        tfidf_matrix = vectorizer.fit_transform([query] + [doc.page_content for doc in documents])
+        cosine_similarities = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1:]).flatten()
+        return cosine_similarities
+
+    def get_similar_documents(self, query: str, top_k: int=20) -> List[Tuple[Document, float]]:
+        """
+        Return the top_k most similar documents to the query. 
+        The return format is a dictionary `{document_id: (document, similarity)}`
+        """
+        retry_cnt = 0
+        while True:
+            try:
+                docs_and_scores = self.vectorstore.similarity_search_with_relevance_scores(
+                    query, top_k, **self.search_kwargs
+                )
+                break
+            except Exception as e:
+                retry_cnt += 1
+                print(f"Retry {retry_cnt} get_similar_docs due to:", e)
+                sleep(3)
+                if retry_cnt >= 5:
+                    break
+        for fetched_doc, relevance in docs_and_scores:
+            fetched_doc.metadata["similarity"] = relevance
+        return docs_and_scores
+
+    def get_relevant_documents(self, query: str, current_time: Optional[datetime]=None, top_k: int=None) -> List[Document]:
+        "Return the top_k documents with highest combination scores (e.g. similarity, recency)."
+        if current_time is None:
+            current_time = datetime.now()
+        if top_k is None:
+            top_k = self.k
+
+        # Get the most relevant documents
+        docs_and_similarity_scores = self.get_similar_documents(query)
+        tfidf_scores = self.get_tfidf_scores(query, [doc for doc, similarity in docs_and_similarity_scores])
+        rescored_docs = [
+            (doc, (self.get_recency_score(doc, current_time), similarity, tfidf_relevance))  # (doc, (recency, similarity, tfidf))
+            for (doc, similarity), tfidf_relevance in zip(docs_and_similarity_scores, tfidf_scores)
+        ]
+        
+        result = []
+        if len(rescored_docs) > 0:
+            score_array = np.array([scores for doc, scores in rescored_docs])
+            assert score_array.shape[1] == 3
+            # Normalize the scores
+            delta_np = score_array.max(axis=0) - score_array.min(axis=0)
+            delta_np = np.where(delta_np == 0, 0.5, delta_np)
+            x_norm = (score_array - score_array.min(axis=0)) / delta_np
+            # Weight the scores
+            x_norm[:, 0] = x_norm[:, 0] * 0.5   # recency
+            x_norm[:, 1] = x_norm[:, 1] * 1.0   # similarity
+            x_norm[:, 2] = x_norm[:, 2] * 0.5   # tfidf
+            x_norm_sum = x_norm.sum(axis=1)
+            rescored_docs = [
+                (doc, weighted_score)
+                for (doc, scores), weighted_score in zip(rescored_docs, x_norm_sum)
+            ]                                                     
+            
+            rescored_docs.sort(key=lambda x: x[1], reverse=True)
+            for doc, _ in rescored_docs[: top_k]:
+                result.append(doc)
+        return result
+
+    def add_memory_document(self, memory_document: Document, **kwargs) -> List[str]:
+        "Add a document to the vectorstore with a timestamp."
+        document = deepcopy(memory_document)
+        current_time = kwargs.get("current_time")
+        if current_time is None:
+            current_time = datetime.datetime.now()
+        if document.metadata.get("last_accessed_at") is None:
+            document.metadata["last_accessed_at"] = current_time
+        if document.metadata.get("created_at") is None:
+            document.metadata["created_at"] = current_time
+
+        result = []
+        retry_cnt = 0
+        while True:
+            try:
+                result = self.vectorstore.add_documents([document], **kwargs)
+                break
+            except Exception as e:
+                retry_cnt += 1
+                print(f"Retry {retry_cnt} add document due to:", e)
+                sleep(3)
+                if retry_cnt >= 5:
+                    break
+        return result
 
 
 class DialogueLogger:

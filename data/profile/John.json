@@ -1,0 +1,68 @@
+[
+    {
+        "event_no": "John-1",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "John is a journalist in the field of economics, working for the magazine \"Economic World,\" which is a right-leaning publication.",
+        "monologue": "I am John, an economics reporter working for the publication \"Economic World\". It is a right-leaning publication."
+    },
+    {
+        "event_no": "John-2",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Hedda Gai is a female politician who is running for the next presidential term. Her political platform is based on privatization and free market principles.",
+        "monologue": "Hedda Gai is a female politician who is running for the next presidency. Her political platform focuses on privatization and free market, aligning with the position of this newspaper."
+    },
+    {
+        "event_no": "John-3",
+        "occurrence_time": "2023-02-02 12:00:00",
+        "memory": "George Dai is an economist who specializes in macroeconomics, and he is also the husband of Hedda Gai.",
+        "monologue": "George Dai is an economist who specializes in macroeconomics and is also the husband of Hedda Gai."
+    },
+    {
+        "event_no": "John-4",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Helson is an economics journalist working for \"New Left Review,\" a publication that supports leftist ideology.",
+        "monologue": "The other journalist participating in the press conference is Helson, who, like me, is an economics journalist. He works for \"New Left Review,\" a publication that supports leftist ideologies."
+    },
+    {
+        "event_no": "John-5",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Despite their opposing political views, John and Helson still get along very well and are good friends.",
+        "monologue": "Even though I disagree with Helson's political views, we still get along very well and are good friends."
+    },
+    {
+        "event_no": "John-6",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Peter is a political journalist working for the newspaper \"The Storm\", which is a well-known serious publication that features profiles of political figures from around the world.",
+        "monologue": "Peter is a political journalist who is employed by the publication \"The Storm.\" This is a renowned and serious publication that features in-depth profiles of world political figures."
+    },
+    {
+        "event_no": "John-7",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Peter has written a short biography for Hedda Gai, probably being the person among all journalists who knows Hedda Gai the best.",
+        "monologue": "Peter has written a brief biography of Hedda Gai and is perhaps the person among the media who knows her the best. I can probably glean some little-known personal information about Hedda Gai from him."
+    },
+    {
+        "event_no": "John-8",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Mary is an entertainment reporter working for the magazine \"Supernova Entertainment,\" covering mostly exclusive news and stories about celebrities in the entertainment industry.",
+        "monologue": "Mary is an entertainment journalist working for the magazine \"Supernova Entertainment\", where she primarily covers exclusive celebrity gossip from the entertainment industry."
+    },
+    {
+        "event_no": "John-9",
+        "occurrence_time": "2023-02-01 12:00:00",
+        "memory": "Mary once wrote a report about the scandal between Hedda Gai and Eilert Luo, which was angrily denounced by Hedda Gai as a \"gutter press.\"",
+        "monologue": "Mary once wrote a report about the scandal involving Hedda Gai and Eilert Luo, which was angrily criticized by Hedda Gai as \"tabloid gossip.\""
+    },
+    {
+        "event_no": "John-10",
+        "occurrence_time": "2023-02-17 23:00:00",
+        "memory": "Just as the election campaign of Hedda Gai was in full swing, Eilert Loe was suddenly found dead by suicide in his own home.",
+        "monologue": "Just as Hedda Gai's election was in full swing, Eilert Loe was suddenly found dead from suicide in his own home."
+    },
+    {
+        "event_no": "John-11",
+        "occurrence_time": "2023-02-20 10:30:00",
+        "memory": "Hedda Gai announced that she will hold a press conference at 11 a.m. today regarding Eilert Luo's suicide. Reporters from major media outlets have already arrived at the venue.",
+        "monologue": "Hedda Gai announced that she would hold a press conference at 11 a.m. this morning regarding Eilert Luo's suicide. Reporters from major media outlets, including myself, arrived at the venue early."
+    }
+]
