@@ -221,7 +221,6 @@ class GenerativeActor:
         event = memory_document.metadata["created_at"].strftime("%m{m}%d{d}%H:%M").format(m="-", d=", ") + ": " + event
         event_monologue = self.prompter.get_event_monologue(self.name, event, relations, relevant_memories, self.description)
         memory_document.metadata["monologue"] = event_monologue
-        memory_document.metadata["monologue"] = event
 
     def generate_actor_response(self, background="", outline="", stream=False) -> str:
         examples = ""
