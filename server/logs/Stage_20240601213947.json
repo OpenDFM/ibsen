@@ -1,0 +1,219 @@
+{
+    "Hedda Gai": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference commemorating Eilert Luo begins, in the hotel lobby. Assistant Berta rushes out of the lobby with the public relations team, leaving only Hedda Gai and George Dai."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, do you remember the evening after the last debate when we had Eilert Luo and Chief Justice Brack over? It was a pleasant gathering, wasn't it?"
+        },
+        {
+            "role": "George Dai",
+            "content": "I remember that evening well, Hedda. It was a rather eventful night, wasn't it?"
+        },
+        {
+            "role": "Narration",
+            "content": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"George, do you remember the evening after the last debate? The discussions we had with Eilert Luo and Chief Justice Brack were truly stimulating. It's not often that I find myself engaged in such intellectual conversations.\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "Excuse me, can I have some talk with Ms Gai?"
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"Of course, Mr. Helson. I'm always open to constructive dialogue and differing perspectives. George, would you mind excusing us for a moment?\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "I heard some news... You involved the death of Eilert."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"I'm aware of the rumors circulating, Mr. Helson. However, I assure you that my involvement with Eilert's passing is purely circumstantial. Now, if you'll excuse me, I have pressing matters to attend to.\""
+        },
+        {
+            "role": "Narration",
+            "content": "Edward Helson leaves the lobby."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, your dedication to my political aspirations and your academic achievements truly set you apart. It's clear that our futures are intertwined, and I appreciate the support you provide."
+        }
+    ],
+    "George Dai": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference commemorating Eilert Luo begins, in the hotel lobby. Assistant Berta rushes out of the lobby with the public relations team, leaving only Hedda Gai and George Dai."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, do you remember the evening after the last debate when we had Eilert Luo and Chief Justice Brack over? It was a pleasant gathering, wasn't it?"
+        },
+        {
+            "role": "George Dai",
+            "content": "I remember that evening well, Hedda. It was a rather eventful night, wasn't it?"
+        },
+        {
+            "role": "Narration",
+            "content": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"George, do you remember the evening after the last debate? The discussions we had with Eilert Luo and Chief Justice Brack were truly stimulating. It's not often that I find myself engaged in such intellectual conversations.\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "Excuse me, can I have some talk with Ms Gai?"
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"Of course, Mr. Helson. I'm always open to constructive dialogue and differing perspectives. George, would you mind excusing us for a moment?\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "I heard some news... You involved the death of Eilert."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"I'm aware of the rumors circulating, Mr. Helson. However, I assure you that my involvement with Eilert's passing is purely circumstantial. Now, if you'll excuse me, I have pressing matters to attend to.\""
+        },
+        {
+            "role": "Narration",
+            "content": "Edward Helson leaves the lobby."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, your dedication to my political aspirations and your academic achievements truly set you apart. It's clear that our futures are intertwined, and I appreciate the support you provide."
+        }
+    ],
+    "Brack": [],
+    "Berta": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference commemorating Eilert Luo begins, in the hotel lobby. Assistant Berta rushes out of the lobby with the public relations team, leaving only Hedda Gai and George Dai."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, do you remember the evening after the last debate when we had Eilert Luo and Chief Justice Brack over? It was a pleasant gathering, wasn't it?"
+        },
+        {
+            "role": "George Dai",
+            "content": "I remember that evening well, Hedda. It was a rather eventful night, wasn't it?"
+        },
+        {
+            "role": "Narration",
+            "content": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"George, do you remember the evening after the last debate? The discussions we had with Eilert Luo and Chief Justice Brack were truly stimulating. It's not often that I find myself engaged in such intellectual conversations.\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "Excuse me, can I have some talk with Ms Gai?"
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"Of course, Mr. Helson. I'm always open to constructive dialogue and differing perspectives. George, would you mind excusing us for a moment?\""
+        },
+        {
+            "role": "Edward Helson",
+            "content": "I heard some news... You involved the death of Eilert."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "\"I'm aware of the rumors circulating, Mr. Helson. However, I assure you that my involvement with Eilert's passing is purely circumstantial. Now, if you'll excuse me, I have pressing matters to attend to.\""
+        },
+        {
+            "role": "Narration",
+            "content": "Edward Helson leaves the lobby."
+        },
+        {
+            "role": "Hedda Gai",
+            "content": "George, your dedication to my political aspirations and your academic achievements truly set you apart. It's clear that our futures are intertwined, and I appreciate the support you provide."
+        }
+    ],
+    "John": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference to mourn Eilert Luo, many reporters and citizens have already waiting in the hall. Some reporters begin to chat about their expectations for this press conference."
+        },
+        {
+            "role": "John",
+            "content": "I wonder if Eilert Luo's suicide will have any significant economic repercussions, especially considering his ties to Hedda Gai."
+        },
+        {
+            "role": "Peter",
+            "content": "Well, considering the political implications, Eilert Luo's suicide may potentially create a ripple effect across the political landscape. It could cast a shadow over Hedda Gai's campaign and influence public perception of her leadership."
+        },
+        {
+            "role": "Mary",
+            "content": "I think the public's reaction to this scandal will be immense, especially with Eilert Luo's involvement with Hedda Gai. The entertainment industry loves a good scandal, and this one is bound to make headlines for quite some time."
+        },
+        {
+            "role": "Narration",
+            "content": "As the reporters conversed, their different perspectives reflected their professional backgrounds and personal interpretations of the unfolding events, setting the stage for the press conference to provide further insights into Eilert Luo's tragic death."
+        },
+        {
+            "role": "Mary",
+            "content": "The public is going to be captivated by this story. I can already imagine the sensational headlines that will emerge from this tragedy."
+        }
+    ],
+    "Peter": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference to mourn Eilert Luo, many reporters and citizens have already waiting in the hall. Some reporters begin to chat about their expectations for this press conference."
+        },
+        {
+            "role": "John",
+            "content": "I wonder if Eilert Luo's suicide will have any significant economic repercussions, especially considering his ties to Hedda Gai."
+        },
+        {
+            "role": "Peter",
+            "content": "Well, considering the political implications, Eilert Luo's suicide may potentially create a ripple effect across the political landscape. It could cast a shadow over Hedda Gai's campaign and influence public perception of her leadership."
+        },
+        {
+            "role": "Mary",
+            "content": "I think the public's reaction to this scandal will be immense, especially with Eilert Luo's involvement with Hedda Gai. The entertainment industry loves a good scandal, and this one is bound to make headlines for quite some time."
+        },
+        {
+            "role": "Narration",
+            "content": "As the reporters conversed, their different perspectives reflected their professional backgrounds and personal interpretations of the unfolding events, setting the stage for the press conference to provide further insights into Eilert Luo's tragic death."
+        },
+        {
+            "role": "Mary",
+            "content": "The public is going to be captivated by this story. I can already imagine the sensational headlines that will emerge from this tragedy."
+        }
+    ],
+    "Mary": [
+        {
+            "role": "Narration",
+            "content": "Before the press conference to mourn Eilert Luo, many reporters and citizens have already waiting in the hall. Some reporters begin to chat about their expectations for this press conference."
+        },
+        {
+            "role": "John",
+            "content": "I wonder if Eilert Luo's suicide will have any significant economic repercussions, especially considering his ties to Hedda Gai."
+        },
+        {
+            "role": "Peter",
+            "content": "Well, considering the political implications, Eilert Luo's suicide may potentially create a ripple effect across the political landscape. It could cast a shadow over Hedda Gai's campaign and influence public perception of her leadership."
+        },
+        {
+            "role": "Mary",
+            "content": "I think the public's reaction to this scandal will be immense, especially with Eilert Luo's involvement with Hedda Gai. The entertainment industry loves a good scandal, and this one is bound to make headlines for quite some time."
+        },
+        {
+            "role": "Narration",
+            "content": "As the reporters conversed, their different perspectives reflected their professional backgrounds and personal interpretations of the unfolding events, setting the stage for the press conference to provide further insights into Eilert Luo's tragic death."
+        },
+        {
+            "role": "Mary",
+            "content": "The public is going to be captivated by this story. I can already imagine the sensational headlines that will emerge from this tragedy."
+        }
+    ]
+}
