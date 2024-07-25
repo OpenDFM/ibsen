@@ -119,7 +119,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 2 - Hotel corridor"
             },
             {
                 "title": "Act 1 - Hotel lobby",
@@ -137,7 +138,8 @@
                     "Hedda Gai and George Dai left the lobby."
                 ],
                 "player_in": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation.",
-                "player_out": "Edward Helson leaves the lobby."
+                "player_out": "Edward Helson leaves the lobby.",
+                "next_act": "Act 2 - Hotel lobby"
             },
             {
                 "title": "Act 1 - Press conference hall",
@@ -153,7 +155,8 @@
                     "Before the press conference began, reporters chatted with each other."
                 ],
                 "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall."
+                "player_out": "Reporter Edward Helson leaves the hall.",
+                "next_act": "Act 2 - Press conference hall"
             },
             {
                 "title": "Act 1 - Press conference backstage",
@@ -163,7 +166,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 2 - Press conference backstage"
             }
         ],
         [
@@ -175,7 +179,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 3 - Hotel corridor"
             },
             {
                 "title": "Act 2 - Hotel lobby",
@@ -185,7 +190,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 3 - Hotel lobby"
             },
             {
                 "title": "Act 2 - Press conference hall",
@@ -204,7 +210,8 @@
                     "Reporters present, including John, Peter, Mary, etc., started asking Hedda Gai questions related to Eilert Luo's suicide. Hedda Gai responds to the reporters' questions, momentarily slipping and revealing emotions towards Eilert Luo, but quickly covered it up."
                 ],
                 "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall."
+                "player_out": "Reporter Edward Helson leaves the hall.",
+                "next_act": "Act 3 - Press conference hall"
             },
             {
                 "title": "Act 2 - Press conference backstage",
@@ -214,7 +221,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 3 - Press conference backstage"
             }
         ],
         [
@@ -226,7 +234,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 4 - Hotel corridor"
             },
             {
                 "title": "Act 3 - Hotel lobby",
@@ -236,7 +245,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 4 - Hotel lobby"
             },
             {
                 "title": "Act 3 - Press conference hall",
@@ -256,7 +266,8 @@
                     "Hedda Gai reluctantly announced an end to today's press conference and left the scene. At that moment, reporter Mary suddenly asked if she was pregnant. Hedda Gai, rarely displaying anger, retorted that such a question was quite inappropriate."
                 ],
                 "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall."
+                "player_out": "Reporter Edward Helson leaves the hall.",
+                "next_act": "Act 4 - Press conference hall"
             },
             {
                 "title": "Act 3 - Press conference backstage",
@@ -266,7 +277,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 4 - Press conference backstage"
             }
         ],
         [
@@ -278,7 +290,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 5 - Hotel corridor"
             },
             {
                 "title": "Act 4 - Hotel lobby",
@@ -288,7 +301,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": "Act 5 - Hotel lobby"
             },
             {
                 "title": "Act 4 - Press conference hall",
@@ -304,7 +318,8 @@
                     "The reporters remained at the scene exchanged thoughts on the just-concluded press conference. They continued their discussions until staff reminded them to clear the venue, at which point the journalists departed."
                 ],
                 "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall."
+                "player_out": "Reporter Edward Helson leaves the hall.",
+                "next_act": "Act 5 - Press conference hall"
             },
             {
                 "title": "Act 4 - Press conference backstage",
@@ -320,7 +335,8 @@
                     "Brack informed Hedda that Eilert Luo's death was not honorable – he shot himself in the abdomen during suicide. Brack also hinted to Hedda that he knew the gun Eilert used for suicide was given to him by her, implying a potential threat."
                 ],
                 "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
-                "player_out": "Reporter Edward Helson leaves the backstage."
+                "player_out": "Reporter Edward Helson leaves the backstage.",
+                "next_act": "Act 5 - Press conference backstage"
             }
         ],
         [
@@ -332,7 +348,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": ""
             },
             {
                 "title": "Act 5 - Hotel lobby",
@@ -342,7 +359,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": ""
             },
             {
                 "title": "Act 5 - Press conference hall",
@@ -352,7 +370,8 @@
                 "actors": [],
                 "goals": [],
                 "player_in": "",
-                "player_out": ""
+                "player_out": "",
+                "next_act": ""
             },
             {
                 "title": "Act 5 - Press conference backstage",
@@ -369,7 +388,8 @@
                     "Brack suggested taking care of Hedda Gai during this time, with George's approval. Unable to bear it any longer, Hedda Gai forcefully pushed away George and ran offstage."
                 ],
                 "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
-                "player_out": "Reporter Edward Helson leaves the backstage."
+                "player_out": "Reporter Edward Helson leaves the backstage.",
+                "next_act": ""
             }
         ]
     ]

@@ -563,9 +563,12 @@
         okButton.onclick = async () => {
             const inputValue = document.getElementById("textInput").value;
             // const wrappedInputValue = lineWrapper(inputValue, 18);
-            $gameVariables.setValue(varId, inputValue ? inputValue : '');
-            $gamePlayer.setUtterance(inputValue ? inputValue : "");
-            Galv.Mpup.directlyCreateCaption("a1", ["\\E[0]"], ["", 0, 0, 0, ""])
+            if (inputValue !== "") {
+                const completeValue = ($gamePlayer.getUtterance() + "\n\n" + inputValue).trim();
+                $gameVariables.setValue(varId, inputValue ? inputValue : "");
+                $gamePlayer.setUtterance(completeValue ? completeValue : "");
+                Galv.Mpup.directlyCreateCaption("a1", [inputValue], ["", 0, 0, 0, ""]);
+            };
             removeHtmlForm();
             $gamePlayer.moveByInput = _gamePlayerMoveByInput;
         };

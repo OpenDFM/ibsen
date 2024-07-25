@@ -94,5 +94,6 @@ while not finished:
     has_input = False
     while not has_input:
         has_input = prompt_player_input()
-    finished = hedda_stage.step()
+    hedda_stage.step()
+    finished = hedda_stage.finished
 prompt_guide_interview()

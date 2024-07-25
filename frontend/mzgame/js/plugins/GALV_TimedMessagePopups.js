@@ -129,7 +129,7 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 
 	// 滚动文本类
 	class TypingText {
-		constructor(textArray, maxWidth = 20) {
+		constructor(textArray, maxWidth = 30) {
 			this.textArray = textArray;
 			this.maxWidth = maxWidth;
 
@@ -176,13 +176,23 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 
 			let currentLine = "";
 			for (let i = 0; i < currentText.length; i++) {
-				const word = currentText[i];
-				const potentialLine = (currentLine === "") ? word : currentLine + word;
+				const char = currentText[i];
+				const potentialLine = (currentLine === "") ? char : currentLine + char;
 				if (potentialLine.length <= this.maxWidth) {
 					currentLine = potentialLine;
 				} else {
-					currentTextArray.push(currentLine);
-					currentLine = word;
+					const lastSpaceIndex = currentLine.lastIndexOf(" ");
+					let currentLineBeforeSpace = "";
+					let currentLineAfterSpace = "";
+					if (lastSpaceIndex !== -1) {
+						currentLineBeforeSpace = currentLine.substring(0, currentLine.lastIndexOf(" "));
+						currentLineAfterSpace = currentLine.substring(currentLine.lastIndexOf(" ") + 1);
+					} else {
+						currentLineBeforeSpace = currentLine.substring(0, this.maxWidth - 1) + "-";
+						currentLineAfterSpace = currentLine.substring(this.maxWidth - 1);
+					}
+					currentTextArray.push(currentLineBeforeSpace);
+					currentLine = currentLineAfterSpace + char;
 				}
 			}
 			if (currentLine !== "") {
@@ -194,6 +204,9 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 		}
 	}
 
+	Game_Message.prototype.isPopupBusy = function () {
+		return SceneManager._scene._captionWindows.length > 0;
+	};
 
 	Galv.Mpup.Game_Interpreter_command101 = Game_Interpreter.prototype.command101;
 	Game_Interpreter.prototype.command101 = function () {
@@ -208,6 +221,7 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 		} else {
 			this.createCaption(cap, pos, data);
 		};
+		return true;
 	};
 
 	// 不依赖“显示文本”事件，直接生成对话气泡
@@ -400,6 +414,8 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 
 		this._txtArray = textArray;
 		this._typingText = new TypingText(textArray);
+		if (!this.follow)
+			this._typingText = new TypingText(textArray, 64);
 		// this._time = time + delay || 160;
 		this._time = this._typingText.getTime();
 		this._delayTime = this._time - delay;
@@ -585,6 +601,9 @@ Galv.Mpup = Galv.Mpup || {};        // Galv's stuff
 			var centX = this.target.screenX() - this.width / 2;
 			this.x = centX;
 			this.y = this.target.screenY() + this._offsetY;
+		} else {
+			var centX = this.targetX - this.width / 2 - 4;
+			this.x = centX;
 		};
 	};
 
