@@ -1,3 +1,4 @@
 api_key.py
 server/logs/*
 **/__pycache__/
+frontend/mzgame/*

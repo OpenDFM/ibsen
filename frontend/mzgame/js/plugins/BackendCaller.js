@@ -128,6 +128,24 @@
 		11: "Hotel corridor"
 	};
 
+	// 舍弃掉RPG游戏相关的等级、遇敌等内容
+	const _GameActorSetup = Game_Actor.prototype.setup;
+	Game_Actor.prototype.setup = function(actorId) {
+		const actor = $dataActors[actorId];
+		this._actorId = actorId;
+		this._name = actor.name;
+		this._nickname = actor.nickname;
+		this._profile = actor.profile;
+		this._classId = actor.classId;
+		this._level = actor.initialLevel;
+		this.initImages();
+		this.clearParamPlus();
+	};
+	Game_Player.prototype.canEncounter = function () { return false; };
+	Game_Actor.prototype.onPlayerWalk = function() {
+		this.clearResult();
+	};
+
 	// 重写Game_Event与Game_Player对象，增加_utterance属性用于存储事件的对话语句
 	const _GameEventInitialize = Game_Event.prototype.initialize;
 	Game_Event.prototype.initialize = function () {

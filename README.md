@@ -6,17 +6,22 @@
 
 This repository provides a simple terminal frontend to interact with IBSEN.
 
+### 🎉News: We have released a video-game frontend to interact with IBSEN! Check [frontend/](frontend/) for details.
+
 ## Installation
 **NOTE:** We recommend creating a virtual environment to install dependencies because some of the package versions we use are relatively old and their behavior may be incompatible with newer versions of the packages.
 ```
 pip install -r requirements.txt
 ```
 
-## Launch Frontend
-By default we use the `gpt-3.5-turbo-1106` as the backbone LLM. You should provide your OpenAI API key in [`api_key.py`](api_key.py) first, then directly launch the [`terminal_frontend.py`](terminal_frontend.py):
+## Launch Frontend (Terminal)
+By default we use the `gpt-4o-mini` as the backbone LLM. You should provide your OpenAI API key in [`api_key.py`](api_key.py) first, then directly launch the [`terminal_frontend.py`](terminal_frontend.py):
 ```
 python terminal_frontend.py
 ```
+
+## Launch Frontend (mzgame)
+See [here](frontend/README.md) for details. You should still provide your OpenAI API key in [`api_key.py`](api_key.py) first.
 
 ## Use Your Own Script Settings
 The [`data`](data) directory contains all the script settings required by the IBSEN. You may customize these files to use IBSEN in your own drama scenarios.
@@ -26,3 +31,14 @@ The [`data`](data) directory contains all the script settings required by the IB
 - If you have dialogue corpora for certain characters, you can place them in [`data/corpus`](data/corpus/) to provide references for the actor agents. The corpus file names should be the same as the character names defined in the script settings. You can follow the format of [our corpus](data/corpus/example.csv) to build the corpus.
 
 ## Citation
+```bibtex
+@misc{han2024ibsendirectoractoragentcollaboration,
+      title={IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation}, 
+      author={Senyu Han and Lu Chen and Li-Min Lin and Zhengshan Xu and Kai Yu},
+      year={2024},
+      eprint={2407.01093},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.01093}, 
+}
+```

@@ -134,7 +134,12 @@ class GenerativeStage:
             target_director.add_dialogue_log({"role": player.name, "content": player.action["utterance"]})
             target_director.interrupted = True
         elif player.action["action"] == "none":
-            pass
+            # If the director allocates the turn to the player but it does nothing, we want to tell the director about this fact.
+            # Another difference to the paper for better experience.
+            current_act_name = player.current_act
+            current_director = self.directors[current_act_name]
+            if current_director.interrupted:
+                current_director.add_dialogue_log({"role": "Narration", "content": f"{player.name} does nothing."})
         else:
             raise AssertionError(player.action)
 
