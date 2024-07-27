@@ -8,11 +8,13 @@ We created a simple video-game like frontend for better interaction with the IBS
 2. Set your OpenAI API key in `api_key.py`.
 3. From root directory of this repository run
     ```
-    python mzgame_frontend.py --backend_port <backend_port> --frontend_port <frontend_port>
+    python mzgame_frontend.py --frontend_port <frontend_port>
     ```
-    If no arguments provided, by default, this python backend serves on port 8080, and the HTTP frontend serves on port 8081.
+    If no arguments provided, by default, the HTTP frontend serves on port 8081.
 
 4. The game frontend will be served on `http://localhost:<frontend_port>`. Use your browser to start the game!
+
+**NOTE:** The game frontend uses http://localhost:8080 to communicate with the `mzgame_frontend.py` Flask program. Make sure the port is not occupied.
 
 ## Guidance
 ### Basic control

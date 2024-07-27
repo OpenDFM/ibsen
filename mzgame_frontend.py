@@ -139,9 +139,8 @@ def agent(agent_name: str):
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
-    args.add_argument("--backend_port", type=int, default=8080)
     args.add_argument("--frontend_port", type=int, default=8081)
     args = args.parse_args()
 
     threading.Thread(target=run_frontend_server, args=(args.frontend_port,)).start()
-    socketio.run(app, "localhost", args.backend_port, debug=False)
+    socketio.run(app, "localhost", 8080, debug=False)
