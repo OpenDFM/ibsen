@@ -10,7 +10,8 @@ from server.stage import GenerativeStage, Player
 API_KEY = OPENAI_API_KEY
 os.environ["OPENAI_API_KEY"] = API_KEY
 
-LLM_NAME = "gpt-3.5-turbo-1106"
+# You may upgrade your `tiktoken` version to use gpt-4o-mini.
+LLM_NAME = "gpt-4o-mini"
 
 SCRIPT_PATH = "data/script/hedda_gabler_modern.json"
 
@@ -30,22 +31,21 @@ def prompt_player_input() -> bool:
     print("Input the numbers below to enter the act, or directly input the text to begin a conversation: " + candidate_str)
     user_input = input()
     try:
-        # TODO: 同时移动和对话的情况
         number_input = int(user_input)
         if number_input == 0:
-            player.action = {"action": "none", "content": ""}
+            player.action = {"action": "none", "moveTo": player.current_act, "utterance": ""}
             return True
         elif number_input == -1:
             prompt_guide_interview()
             return False
         elif number_input in act_dict:
-            player.action = {"action": "move", "content": act_dict[number_input]}
+            player.action = {"action": "move", "moveTo": act_dict[number_input], "utterance": ""}
             return True
         else:
             raise ValueError
     except ValueError:
         string_input = str(user_input)
-        player.action = {"action": "talk", "content": string_input}
+        player.action = {"action": "talk", "moveTo": player.current_act, "utterance": string_input}
         return True
 
 def prompt_guide_interview():
@@ -94,5 +94,6 @@ while not finished:
     has_input = False
     while not has_input:
         has_input = prompt_player_input()
-    finished = hedda_stage.step()
+    hedda_stage.step()
+    finished = hedda_stage.finished
 prompt_guide_interview()

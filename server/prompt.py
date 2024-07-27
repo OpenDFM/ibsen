@@ -92,7 +92,7 @@ PROMPT_SUMMARIZE_SYSTEM = """
 {{#system~}}
 You are an actor preparing for a drama. You are going to role-play the character named {{name}}.
 
-The following lines are dialogues that happened between your character and other characters. From the perspective of {{name}}, summarize the dialogue history point by point based on the topics.
+The following lines are dialogues that happened between your character and other characters. From the perspective of {{name}}, summarize the dialogue history point by point based on the topics. The summary should be limited to 5 points.
 
 You should output the response in the format of JSON. Format example:
 ```

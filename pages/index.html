@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="./assets/opendfm.png">
+  <link rel="stylesheet" href="./assets/flickity.min.css" media="screen">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="./assets/flickity.pkgd.min.js.下载"></script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+  </script>
+  <!-- <script defer="defer" src="./assets/main.af618a8b.js.下载"></script> -->
+  <link href="./assets/main.3738a533.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Web site created using create-react-app">
+  <link rel="apple-touch-icon" href="./assets/opendfm.png">
+  <link rel="manifest" href="https://guopei.github.io/markdown-to-project-page-mvp/manifest.json">
+  <title>IBSEN</title>
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div class="App">
+      <form class="editor-box">
+        <div class="rc-md-editor full ">
+          <div class="editor-container">
+            <section class="section sec-html visible">
+              <div class="section-container html-wrap">
+                <div class="custom-html-style">
+                  <div class="dark-mode-switch">
+
+                  </div>
+                  <h1>IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation
+                  </h1>
+                  <div class="author">
+                    <p><strong>Senyu Han</strong><sup>1</sup>, <strong>Lu Chen</strong><sup>1,3*</sup>, <strong>Li-Min
+                        Lin</strong><sup>2</sup>, <strong>Zhengshan Xu</strong><sup>2</sup>, <strong>Kai
+                        Yu</strong><sup>1,3</sup></p>
+                  </div>
+                  <div class="institution">
+                    <p><span><sup>1</sup>1X-LANCE Lab, Department of Computer Science and Engineering<br>MoE Key Lab of
+                        Artificial Intelligence, SJTU AI Institute<br>Shanghai Jiao Tong University, Shanghai,
+                        China</span> <span><sup>2</sup>Department of Cultural Industry Management, School of Media and
+                        Communication<br>Shanghai Jiao Tong University, Shanghai, China</span>
+                      <span><sup>3</sup>Suzhou Laboratory, Suzhou, China</span><br>
+                      <strong>Contact:</strong> <a
+                        href="https://guopei.github.io/markdown-to-project-page-mvp/cnlnpjhsy@sjtu.edu.cn">cnlnpjhsy@sjtu.edu.cn</a>,
+                      <a
+                        href="https://guopei.github.io/markdown-to-project-page-mvp/chenlusz@sjtu.edu.cn">chenlusz@sjtu.edu.cn</a>
+                    </p>
+                  </div>
+                  <div class="button">
+                    <p><a href="https://arxiv.org/abs/2407.01093"><i class="ai ai-arxiv" aria-hidden="true"></i>
+                        Paper</a> <a href="https://github.com/OpenDFM/ibsen"><i class="fa fa-github"
+                          aria-hidden="true"></i>
+                        Code</a></p>
+                  </div>
+                  <p><img src="./assets/6dZHh52.png" alt="Banner Image"></p>
+                  <div class="caption">
+                    <p><strong>IBSEN</strong> is an LLM-based framework for generating controllable drama scripts with
+                      agent characters. Besides traditional role-playing actor agents, we introduce the director agent
+                      to serve as the centralized component, and instruct actor agents to follow the plot development.
+                    </p>
+                  </div>
+                  <h2>Abstract</h2>
+                  <p>Large language models have demonstrated their capabilities in storyline creation and human-like
+                    character role-playing. Current language model agents mainly focus on reasonable behaviors from the
+                    level of individuals, and their behaviors might be hard to constraint on the level of the whole
+                    storyline. In this paper we introduce IBSEN, a director-actor coordinate agent framework that
+                    generates drama scripts and makes the plot played by agents more controllable. The director agent
+                    writes plot outlines that the user desires to see, instructs the actor agents to role-play their
+                    characters, and reschedules the plot when human players participate in the scenario to ensure the
+                    plot is progressing towards the objective. To evaluate the framework, we create a novel drama plot
+                    that involves several actor agents and check the interactions between them under the instruction of
+                    the director agent. Evaluation results show that our framework could generate complete, diverse
+                    drama scripts from only a rough outline of plot objectives, meanwhile maintaining the
+                    characteristics of characters in the drama.</p>
+                  <p></p><br>
+                  <div class="video-file-player" style="text-align: center;">
+                    <video controls="" src="https://i.imgur.com/86SkbXm.mp4"></video>
+                  </div>
+                  <p></p><br>
+                  <p>The implementation of the IBSEN framework is largely prompt-based, and one can easily construct
+                    IBSEN agents on any publicly available general LLMs without fine-tuning. We test and evaluate IBSEN
+                    in a drama scenario, meanwhile its framework design could be expanded to broader application cases,
+                    especially agent-based interactive games that contain specialized plot objectives. Demo video above
+                    shows a simple interactive surface implemented by RPG Maker MZ.</p>
+                  <h2>Agent Architecture</h2>
+                  <p><strong>Director Agent</strong> - The central component of IBSEN, drives the whole storyline
+                    towards expected plot objectives.</p>
+                  <ul>
+                    <li>Read the script settings, get predefined plot objectives $\langle G_1, G_2, \dots\rangle$
+                    <li>Write a continuation story outline $S_G$ that adheres to the current $G$
+                    <li>Translate the outline $S_G$ into detailed dialogue scripts $\langle\hat{T}_1, \hat{T}_2,
+                      \dots\rangle_G$
+                    <li>For each turn $\hat{T}=(r, \hat{u})$, generate instruction $I=\left\{S_G, Synopsis(\hat{u}),
+                      keywords\right\}$ to hint the actor role $r$ how to respond $u$ that fits the storyline and the
+                      character
+                    <li>Check whether current objective $G_i$ is completed using the actual dialogue history
+                      $\langle\dots,T_{j-1},T_j\rangle$; move to the next objective $G_{i+1}$ if completed, otherwise
+                      still use the turn $\hat{T}_{j+1}$ generated before
+                  </ul>
+                  <p><strong>Actor Agent</strong> - The distributed component of IBSEN, specifically modified to better
+                    suit the drama role-playing scenario.</p>
+                  <ul>
+                    <li>Maintain three databases: Actor Profile $D_P$, Memory Database $D_M$ and Character Database
+                      $D_C$ to store different categories of contents
+                    <li>Use a first-person narrative monologue to interpret the content stored in the databases from the
+                      perspective and voice of the role-playing character
+                    <li>Maintain a dialogue log $L=\langle T_1, T_2, \dots\rangle$ as the short-term memory; earlier
+                      dialogue turns will be gradually stored into databases for further retrieval
+                    <li>Generate the response utterance $u$ using: role characteristics from $D_P$, related top memories
+                      from $D_M$, character impressions from $D_C$, instruction $I$ from director, script background and
+                      dialogue history from $L$
+                  </ul>
+                  <h2>Director-Actor-Player Collaboration</h2>
+                  <p><img src="./assets/NX01bBo.png" alt="">
+                    IBSEN also allows human players to participate in the plot and interact with other characters.
+                    Though the player agent is controlled by humans, it can be seen as an actor agent that is not
+                    controlled by the director, and can take any action at any turn of the dialogue.</p>
+                  <p>The director needs to dynamically adjust the plot to accommodate player actions while maintaining
+                    the development of the storyline:</p>
+                  <ul>
+                    <li>If no player involvement, still develop the storyline according to the dialogue script generated
+                      before</li>
+                    <li>Otherwise, always re-generate the current storyline and dialogue scripts, unless the current
+                      plot objective is completed</li>
+                  </ul>
+                  <h2>Evaluations</h2>
+                  <p>We create a novel interactive drama adopted from <em>Hedda Gabler</em> for evaluation. Check <a
+                      href="https://github.com/OpenDFM/ibsen/tree/main/data">here</a> to see our drama story settings!
+                  </p>
+                  <style>
+                    .image-container {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin: 20px;
+                    }
+
+                    .image-item {
+                      text-align: center;
+                      width: 45%;
+                      /* Adjust the width as needed */
+                    }
+
+                    .image-item img {
+                      max-width: 100%;
+                      height: auto;
+                    }
+
+                    .image-caption {
+                      margin-top: 10px;
+                      font-size: 12px;
+                      color: #555;
+                    }
+                  </style>
+                  <div class="image-container">
+                    <div class="image-item">
+                      <img src="https://i.imgur.com/D0VjqmP.png" alt="relations">
+                      <div class="image-caption">Character relationships in our drama.</div>
+                    </div>
+                    <div class="image-item">
+                      <img src="https://i.imgur.com/tQDvMc7.png" alt="acts">
+                      <div class="image-caption">Act flow in our drama. Each act is controlled by a director agent to
+                        develop its plot.</div>
+                    </div>
+                  </div>
+                  <style>
+                    .inline-images {
+                      display: flex;
+                      justify-content: space-between;
+                    }
+
+                    .inline-images img {
+                      width: 30%;
+                      margin: 0 1%;
+                    }
+
+                    .inline-images img:last-child {
+                      margin-right: 0;
+                    }
+                  </style>
+
+
+                  <div class="inline-images">
+                    <img src="./assets/Gp4emRo.gif" alt="Talking">
+                    <img src="./assets/QYYWgJT.gif" alt="Interacting with player">
+                    <img src="./assets/yVPboFo.gif" alt="Completing objectives">
+                  </div>
+                  <ul>
+                    <li>Most of the time, IBSEN follows the route of plot objectives and generates proper storylines,
+                      while maintaining the characteristics in the dialogue.</li>
+                    <li>New storylines generated by director tend to actively interact with the player.</li>
+                    <li>Player involvement may influence the behaviors of actors and impact the plot.</li>
+                    <li>Some common faults occasionally arise: high repetition, too many narrations, overly positive in
+                      some negative events.</li>
+                    <li>The backbone LLM influences the quality and the moral tendency of the responses.</li>
+                  </ul>
+                  <h2>Discussion</h2>
+                  <p>The idea of "controllable plot generation" can be extended to broader scenarios besides traditional
+                    drama. One of the most notable application fields is interactive gaming. For example, in
+                    communication games like script role-playing and table RPG, human players need to communicate with
+                    NPCs or each other to achieve certain tasks. In IBSEN, both the game master and NPCs can be
+                    role-played by AI generative agents, providing players with flexible gaming experiences at any place
+                    or time. As a backend framework, IBSEN can also be implemented in more complicated environments like
+                    video games, where players can deeper immerse in human-like interactions with NPCs through
+                    audio-visual elements. You may <a href="https://github.com/OpenDFM/ibsen/tree/main/frontend">take a
+                      try</a> in this video-game interactive demo!</p>
+                  <h2>BibTex</h2>
+                  <pre><code>@misc{han2024ibsendirectoractoragentcollaboration,
+      title={IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation}, 
+      author={Senyu Han and Lu Chen and Li-Min Lin and Zhengshan Xu and Kai Yu},
+      year={2024},
+      eprint={2407.01093},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.01093}, 
+}
+</code></pre>
+                  <hr>
+                  <div style="text-align: center; font-size: smaller;">
+                    This website is created by this <a
+                      href="https://guopei.github.io/markdown-to-project-page-mvp/">Tool</a>.
+                  </div>
+                </div>
+            </section>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -9,6 +9,7 @@ from .utils import DialogueLogger, parse_document_to_str
 class GenerativeDirector:
     def __init__(self, prompter: Prompter, background="", act_goals: List[str]=[]) -> None:
         self.act_name = ""
+        self.next_act_name = ""
         self.place = ""
         self.actors: Dict[str, GenerativeActor] = {}
         self.players: List[str] = []
@@ -43,28 +44,29 @@ class GenerativeDirector:
         "Add a player controlled by human. Director will not interfere the behaviour of players."
         if player not in self.players:
             self.players.append(player)
-            if notify:
+            if self.active and notify:
                 self.add_dialogue_log({"role": "Narration", "content": self.player_in})
                 self.interrupted = True
 
     def remove_player(self, player: str, notify=True):
         try:
             self.players.remove(player)
-            if notify:
+            if self.active and notify:
                 self.add_dialogue_log({"role": "Narration", "content": self.player_out})
                 self.interrupted = True
         except ValueError:
             return
         
     def add_dialogue_log(self, log: Dict[str, str]):
-        self.dialogue_logger.add_log(log)
-        self.eval_dialogue_history.append(log)
-        for actor in self.actors.values():
-            summarized_history = actor.dialogue_history.add_log(log)
-            for summary in summarized_history:
-                actor.add_memory(summary, force_influence=True)
-            if len(summarized_history) > 0:
-                actor.update_character_impression(summarized_history)
+        if self.active:
+            self.dialogue_logger.add_log(log)
+            self.eval_dialogue_history.append(log)
+            for actor in self.actors.values():
+                summarized_history = actor.dialogue_history.add_log(log)
+                for summary in summarized_history:
+                    actor.add_memory(summary, force_influence=True)
+                if len(summarized_history) > 0:
+                    actor.update_character_impression(summarized_history)
 
     def generate_new_script(self, lines=5):
         list_characters = [actor for actor in self.actors] + self.players
@@ -92,7 +94,7 @@ class GenerativeDirector:
         related_memories = []
         for actor in self.actors.values():
             memories = f"Character profile of {actor.name}:\n"
-            documents = actor.retriever.get_relevant_documents(current_goal, top_k=3)
+            documents = actor.retriever.get_relevant_documents(current_goal, current_time=actor.current_datetime, top_k=3)
             str_documents = parse_document_to_str(documents, return_monologue=False).split("!<SEP>!")[0]
             memories += str_documents
             if str_documents.strip() != "":
@@ -135,6 +137,11 @@ class GenerativeDirector:
         self.interrupted = False
         next_script = self.current_scripts.popleft()
         next_role, next_content = next_script["role"], next_script["content"]
+        # When a player's "talk" generates the new script, sometimes the next script's role is the player again.
+        # This is not a good experience for the player; we want to skip this turn. This is a little different with the paper :( 
+        while next_role in self.players and self.dialogue_logger.active_history[-1]["role"] == next_role:
+            next_script = self.current_scripts.popleft()
+            next_role, next_content = next_script["role"], next_script["content"]
 
         revised_next_script = {"role": next_role, "content": next_content}
         if next_role in [actor for actor in self.actors]:
@@ -177,3 +184,4 @@ class GenerativeDirector:
                 self.completed = True
                 if len(self.current_scripts) == 0:
                     self.active = False
+                print(f"Act completed: {self.act_name}")

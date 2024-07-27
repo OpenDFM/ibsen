@@ -93,9 +93,6 @@ class GenerativeActor:
             )
             self.add_memory(memory_document, force_influence=True)
 
-    def get_current_datetime(self,) -> datetime:
-        return datetime.now()
-
     def add_character(self, character: str, alias: List[str]=[], relation: str="Not yet available", impression: str="Not yet available"):
         character_document = Document(
             page_content=character,
@@ -167,11 +164,11 @@ class GenerativeActor:
                 memory_document.metadata["influence"] = influence
             memory_time = memory_document.metadata.get("created_at")
             if memory_time is None:
-                memory_time = self.get_current_datetime()
+                memory_time = self.current_datetime
                 memory_document.metadata["created_at"] = memory_time
         else:   # expected str
             memory = memory
-            memory_time = self.get_current_datetime()
+            memory_time = self.current_datetime
             if force_influence:
                 influence = 1
             else:
@@ -221,7 +218,6 @@ class GenerativeActor:
         event = memory_document.metadata["created_at"].strftime("%m{m}%d{d}%H:%M").format(m="-", d=", ") + ": " + event
         event_monologue = self.prompter.get_event_monologue(self.name, event, relations, relevant_memories, self.description)
         memory_document.metadata["monologue"] = event_monologue
-        memory_document.metadata["monologue"] = event
 
     def generate_actor_response(self, background="", outline="", stream=False) -> str:
         examples = ""
