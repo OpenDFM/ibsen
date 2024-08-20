@@ -32,13 +32,19 @@ The [`data`](data) directory contains all the script settings required by the IB
 
 ## Citation
 ```bibtex
-@misc{han2024ibsendirectoractoragentcollaboration,
-      title={IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation}, 
-      author={Senyu Han and Lu Chen and Li-Min Lin and Zhengshan Xu and Kai Yu},
-      year={2024},
-      eprint={2407.01093},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.01093}, 
+@inproceedings{han-etal-2024-ibsen,
+    title = "{IBSEN}: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation",
+    author = "Han, Senyu  and
+      Chen, Lu  and
+      Lin, Li-Min  and
+      Xu, Zhengshan  and
+      Yu, Kai",
+    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.acl-long.88",
+    pages = "1607--1619",
 }
 ```
