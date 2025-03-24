@@ -66,6 +66,7 @@ class GenerativeDirector:
                 for summary in summarized_history:
                     actor.add_memory(summary, force_influence=True)
                 if len(summarized_history) > 0:
+                    # self.prompter.eval_character_consistent(actor.name, actor.description, actor.dialogue_history.active_history)
                     actor.update_character_impression(summarized_history)
 
     def generate_new_script(self, lines=5):
@@ -174,6 +175,7 @@ class GenerativeDirector:
                 self.dialogue_logger.active_history[-self.current_goal_counter:]
             )
         if completed:
+            # self.prompter.eval_goal_reasonable(goal=self.current_goal, dialogue_history=self.eval_dialogue_history)
             self.eval_dialogue_history.clear()
             self.current_scripts.clear()
             if len(self.act_goals) > 0:
@@ -182,6 +184,7 @@ class GenerativeDirector:
             else:
                 self.current_goal = ""
                 self.completed = True
+                # self.prompter.eval_act_conherence(background=self.background, dialogue_history=self.dialogue_logger.dialogue_history)
                 if len(self.current_scripts) == 0:
                     self.active = False
                 print(f"Act completed: {self.act_name}")
