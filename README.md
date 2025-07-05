@@ -6,7 +6,7 @@
 - 采访演员：点击场景中的角色，可以开启与角色的临时对话。这段临时对话不会对角色知识库以及接下来的对话产生影响。
 
 ## 运行方法
-与main分支下的前端运行方法类似：首先在[Google Drive](https://drive.google.com/drive/folders/1QOMYozaVcXDmc_tcPGJruVwJRW9DU18u?usp=sharing)下载好前端文件，将`mzgame-zh`目录放到该根目录下，随后在[`api_key.py`](api_key.py)提供LLM服务的API，最后在根目录下运行：
+与main分支下的前端运行方法类似：首先在[Google Drive](https://drive.google.com/drive/folders/13ft_-g4En_hJf33_4Du6t7JGTYfQLoYj?usp=sharing)下载好前端文件，将`mzgame-zh`目录放到该根目录下，随后在[`api_key.py`](api_key.py)提供LLM服务的API，最后在根目录下运行：
 ```bash
 python mzgame_frontend.py --frontend_port <frontend_port>
 ```
