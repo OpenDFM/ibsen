@@ -6,6 +6,8 @@
 
 This repository provides a simple terminal frontend to interact with IBSEN.
 
+### 🎉更新：我们提供了中文版本的游戏前端实现！请查看[zh](https://github.com/OpenDFM/ibsen/tree/zh)分支。
+
 ### 🎉News: We have released a video-game frontend to interact with IBSEN! Check [frontend/](frontend/) for details.
 
 ## Installation
