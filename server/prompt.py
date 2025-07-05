@@ -1,15 +1,15 @@
 PROMPT_RELATION = """
 {{#system~}}
-The following descriptions are events that a drama character "{{name}}" recently experienced. Please describe the current status of "{{target}}", and update the relationship between "{{name}}" and "{{target}}" according to the existing relationships. Note that do not ignore the existing relationships.
+以下描述是戏剧角色“{{name}}”最近经历的事件。请描述“{{target}}”的当前状态，并根据已有关系更新“{{name}}”与“{{target}}”之间的关系。注意不要忽视已有的关系。
 {{~/system}}
 
 {{#user~}}
-Events: {{event}}
+事件：{{event}}
 
-Existed relationships of {{name}}:
+{{name}}已有的关系：
 {{relation}}
 
-Please objectively and precisely summarize the current status of {{target}} and the complete relationship between {{name}} and {{target}} in 5 lines:
+请用5行客观而准确地总结{{target}}的当前状态以及{{name}}与{{target}}之间的完整关系：
 {{~/user}}
 
 {{#assistant~}}
@@ -19,16 +19,16 @@ Please objectively and precisely summarize the current status of {{target}} and 
 
 PROMPT_UPDATE_IMPRESSION = """
 {{#system~}}
-The following descriptions are events that a drama character "{{name}}" recently experienced. Given the {{name}}'s impressions on "{{target}}" before, you should summarize how would {{name}} think of {{target}} after experiencing those events in 3 lines. Note that do not ignore the existing impressions.
+以下描述是戏剧角色“{{name}}”最近经历的事件。考虑到{{name}}之前对“{{target}}”的印象，请用3行总结在经历这些事件后，{{name}}会如何看待{{target}}。注意不要忽视已有的印象。
 {{~/system}}
 
 {{#user~}}
-Impressions on {{target}} before:
+之前对{{target}}的印象：
 {{impression}}
 
-Events: {{events}}
+事件：{{events}}
 
-After these events, what would {{name}} think of {{target}}? Please summarize {{name}}'s current impression of {{target}} in 3 lines.  
+经历这些事件后，{{name}}会如何看待{{target}}？请用3行总结{{name}}当前对{{target}}的印象。  
 {{~/user}}
 
 {{#assistant~}}
@@ -38,19 +38,18 @@ After these events, what would {{name}} think of {{target}}? Please summarize {{
 
 PROMPT_INFLUENCE = """
 {{#system~}}
-Assuming that you are role-playing a drama character named "{{name}}". The following description is the memory entry that you have already known. If the description could directly, evidently influence the images and behaviors of {{name}}, output 1; otherwise output 0. You should only output an integer. 
+假设你正在扮演一个名为“{{name}}”的戏剧角色。以下描述是你已知的记忆条目。如果该描述能够直接、明显地影响{{name}}的形象和行为，则输出1；否则输出0。你应只输出一个整数。 
 {{~/system}}
 
 {{#user~}}
-{{name}} comes from a prominent background, with his/her father being a general, often referred to in the media as "the general's child". 
-
+{{name}}来自显赫背景，其父亲是一位将军，经常被媒体称为“将军的孩子”。  
 {{~/user}}
 {{#assistant~}}
 1
 {{~/assistant}}
 
 {{#user~}}
-{{name}} has a personal assistant who records all the agenda of {{name}}.
+{{name}}有一个私人助理，记录所有{{name}}的日程。  
 {{~/user}}
 {{#assistant~}}
 0
@@ -66,21 +65,21 @@ Assuming that you are role-playing a drama character named "{{name}}". The follo
 
 PROMPT_EVENT_MONOLOGUE = """
 {{#system~}}
-{{name}} is a drama character. {{instruction}}
-You need to follow the description above to role-play this character. Given the event that {{name}} has experienced and his/her memories related to the event, you need to characteristically recount this event from the perspective of {{name}} in 2 lines.
+{{name}}是一个戏剧角色。{{instruction}}  
+你需要遵循上述描述来扮演此角色。给定{{name}}经历的事件及其与该事件相关的记忆，你需要以{{name}}的视角，用2行具有角色特色地叙述该事件。  
 {{~/system}}
 
 {{#user~}}
-{{name}} experienced this event:
+{{name}}经历了以下事件：  
 {{event}}
 
-Interpersonal relationships related to the event:
+与该事件相关的人际关系：  
 {{relations}}
 
-{{name}}'s past memories related to the event:
+{{name}}与该事件相关的过往记忆：  
 {{memories}}
 
-Having experienced this event, what would you think if you were {{name}}? Using the first-person tone of {{name}}, recount the event precisely and characteristically in 2 lines:
+如果你是{{name}}并经历了此事件，你会怎么想？请使用{{name}}的第一人称口吻，用2行既精准又具有角色特色地叙述该事件：  
 {{~/user}}
 
 {{#assistant~}}
@@ -90,13 +89,13 @@ Having experienced this event, what would you think if you were {{name}}? Using 
 
 PROMPT_SUMMARIZE_SYSTEM = """
 {{#system~}}
-You are an actor preparing for a drama. You are going to role-play the character named {{name}}.
+你是一名正在准备戏剧的演员。你将要扮演名为{{name}}的角色。
 
-The following lines are dialogues that happened between your character and other characters. From the perspective of {{name}}, summarize the dialogue history point by point based on the topics. The summary should be limited to 5 points.
+以下几行是你的角色与其他角色之间发生的对话。从{{name}}的角度，按照话题逐点总结对话历史。总结应限制为5点。
 
-You should output the response in the format of JSON. Format example:
+你应以JSON格式输出回复。格式示例：
 ```
-{"summary": ["Summary point 1", "Summary point 2", ...]}
+{"summary": ["总结要点1", "总结要点2", ...]}
 ```
 {{~/system}}
 """
@@ -109,20 +108,20 @@ PROMPT_SUMMARIZE_ASSISTANT = """
 
 PROMPT_IMPRESSION = """
 {{#system~}}
-{{name}} is a character in a drama. Given the background profile of this character, you should summarize how {{name}} would think of other characters. The summary of each character is limited to 5 lines.
-If the background profile does not mention some characters, you should regard that {{name}} has no impressions on those characters.
+{{name}}是一个戏剧角色。根据该角色的背景资料，你应总结{{name}}会如何看待其他角色。对每个角色的总结限制为5行。
+如果背景资料未提及某些角色，则视为{{name}}对这些角色没有印象。
 
-You should output the response in the format of JSON. Format example:
+你应以JSON格式输出响应。格式示例：
 ```
-{"Character 1": "Impression 1", "Character 2": "Impression 2", ...}
+{"角色1": "印象1", "角色2": "印象2", ...}
 ```
 {{~/system}}
 
 {{#user~}}
-Following the chronological order, the background profiles of {{name}} are:
+按照时间顺序，{{name}}的背景资料如下：
 {{memories}}
 
-Please respectively output the {{name}}'s impressions on the characters below in JSON format. If the character is not mentioned in the background profile, you should regard that {{name}} has no impression on that character.
+请分别以JSON格式输出{{name}}对以下角色的印象。如果角色未在背景资料中提及，则视为{{name}}对该角色没有印象。
 {{characters}}
 {{~/user}}
 
@@ -133,21 +132,21 @@ Please respectively output the {{name}}'s impressions on the characters below in
 
 PROMPT_MONOLOGUE = """
 {{#system~}}
-Give you a drama character "{{name}}" and his/her monologue. After the monologue, this character experienced a series of events, and the psychology of the character may have shifted.
-Based on the existing monologue and the events {{name}} has experienced afterward, you should role-play this character according to the instruction, and generate a new monologue in the first-person tone.
+给你一个戏剧角色“{{name}}”及其独白。在独白之后，该角色经历了一系列事件，其心理可能发生了变化。
+基于已有的独白和{{name}}之后经历的事件，你应根据指示扮演此角色，并以第一人称生成新的独白。
 {{~/system}}
 
 {{#user~}}
-{{name}}'s monologue before:
+{{name}}之前的独白：
 {{monologue}}
 
-After that, the character chronologically experienced these events:
+之后，该角色按时间顺序经历了这些事件：
 {{memories}}
 
-Instruction to role-playing {{name}}:
+对扮演{{name}}的指示：
 {{instruction}}
 
-Having experienced these events, what would you think or do if you were {{name}}? According to the instruction, please characteristically summarize {{name}}'s monologue in 10 lines.
+经历这些事件后，如果你是{{name}}，你会怎么想或做？请根据指示，在5行内具有角色特色地总结{{name}}的独白。
 {{~/user}}
 
 {{#assistant~}}
@@ -157,47 +156,83 @@ Having experienced these events, what would you think or do if you were {{name}}
 
 PROMPT_DIRECTOR_OUTLINE = """
 {{#system~}}
-Assuming you are currently a director, guiding a scene in a drama.
+假设你目前是这部戏剧中一个场景的导演。
 
-Given the characters and the existing script for this scene, please first summarize what has happened in the plot so far.
+给定该场景的角色和现有剧本，请首先总结到目前为止剧情发生了什么。
 
-Then, based on the relationships and impressions between characters, you are asked to write a detailed continuation for the upcoming script. Ensure that the combined plot of the current scene and the continuation adheres to the given plot objective, and the specific content of the script is more related to the characters' images.
+然后，基于角色之间的关系和印象，你需要为即将到来的剧本写一个详细的续写。确保当前场景和续写的整体剧情符合给定的剧情目标，并使剧本的具体内容更贴近角色形象。
 
-The existing script may have partially achieved the current plot objective. You must strictly follow the requirements of the plot objective, continuing the existing script and gradually developing the plot. Be cautious not to disregard the existing script or create plot developments beyond the specified plot objective.
+现有剧本可能已经部分实现了当前的剧情目标。你必须严格遵循剧情目标的要求，在续接现有剧本的同时逐步发展情节。要注意不要忽视现有剧本，也不要创造超出指定剧情目标范围的情节发展。
 
-Your generated plot guidance should be descriptive about what will happen next, without using a dialogue script format. Do not include events that have already occurred in the existing script, and refrain from prematurely generating events beyond reaching the plot objective. Characters in the plot must be in the scene.
+你生成的剧情指导应描述接下来将发生的事情，而不用对话剧本格式。不要包含已经在现有剧本中发生的事件，也不要过早生成超过达到剧情目标之后的事件。剧情中的角色必须出现在该场景中。
 
-You should summarize the existing script and give the continuation for the upcoming script in JSON format. Format example: 
+你应以JSON格式总结现有剧本并给出即将到来的剧本的续写。格式示例：
 ```
-{"previous_outline": "Summary of the existing script", "new_outline": "Continuation for the upcoming script"}
+{"previous_outline": "对现有剧本的总结", "new_outline": "即将到来的剧本的续写"}
 ```
 {{~/system}}
 
 {{#user~}}
-Characters in the scene: {{characters}}
-Your plot cannot include any characters that are not in the scene.
+场景中的角色：{{characters}}
+你的剧情不能包含不在场景中的角色。
 
-Character descriptions:
+角色描述：
 {{descriptions}}
 
-Relations between characters:
+角色之间的关系：
 {{relations}}
 
-Impressions between characters:
+角色之间的印象：
 {{impressions}}
 
-The existing script:
+现有剧本：
 {{dialogue_history}}
 
-Please summarize the plot of the existing script first.
+请先总结现有剧本的剧情。
 {{background}}
-Performace goal in the next: {{act_goal}}
+接下来演出的目标：{{act_goal}}
 
-Character memories related to the plot objective:
+与剧情目标相关的角色记忆：
 {{memories}}
-These memories above have already occurred in the past. You should refer to them to create the outline.
+上述记忆已在过去发生。你应参考它们来创建大纲。
 
-Based on the information above, how should the plot develop next? Provide a detailed continuation for the upcoming plot, seamlessly connecting with the previous script to make the plot and character images relevant. Ensure the entire plot progresses towards the plot objective. You should output in JSON format.
+基于以上信息，剧情接下来应如何发展？请为即将到来的剧情提供详细的续写，与之前的剧本无缝衔接，使剧情和角色形象相关。确保整个剧情朝着剧情目标推进。你应以JSON格式输出。
+{{~/user}}
+
+{{#assistant~}}
+{{gen 'ans' temperature=0.6 max_tokens=4000 stream=False response_format={ "type": "json_object" }}}
+{{~/assistant}}
+"""
+
+PROMPT_DIRECTOR_SCRIPT = """
+{{#system~}}
+假设你目前是这部戏剧中一个场景的导演。
+
+给定该场景的角色以及即将到来的剧情大纲，请将即将到来的剧情大纲翻译成脚本格式，最多{{num_lines}}行，确保遵循故事脉络并与之前的剧本无缝衔接。
+
+你可以逐步展开脚本，根据即将到来的剧情大纲丰富细节。如果在达到{{num_lines}}行之前覆盖了所有大纲事件，则可以结束创作。
+
+确保你的续写与现有剧本平滑衔接。尽量使用角色对话来替代旁白。
+
+你应以JSON格式输出脚本续写。脚本的每一行都包括说话人“role”和他/她的台词“content”。说话人只能是旁白或场景中的某个角色。格式示例：
+```
+{"scripts": [{"role": "说话人1", "content": "..."}, {"role": "说话人2", "content": "..."}, {"role": "旁白", "content": "..."}, ...]}
+```
+{{~/system}}
+
+{{#user~}}
+场景中的角色：{{characters}}
+
+角色之间的关系：
+{{relations}}
+
+现有剧情大纲：
+{{prev_outline}}
+{{background}}
+即将到来的剧情大纲：
+{{act_outline}}
+
+基于以上信息，请将即将到来的剧情大纲翻译成脚本格式，最多{{num_lines}}行，使用JSON格式。确保续写与现有剧本无缝衔接，并遵循即将到来的剧情大纲。注意，说话人只能是旁白或场景中的某个角色。尽量使用角色对话来替代旁白。
 {{~/user}}
 
 {{#assistant~}}
@@ -205,68 +240,32 @@ Based on the information above, how should the plot develop next? Provide a deta
 {{~/assistant}}
 """
 
-PROMPT_DIRECTOR_SCRIPT = """
-{{#system~}}
-Assuming you are currently a director, guiding a scene in a drama.
-
-Given the characters and the outline of the upcoming plot for this scene, please translate the upcoming plot outline into script format for up to {{num_lines}} lines, ensuring that it follows the storyline and seamlessly connects with the preceding script.
-
-You can gradually develop the script, enriching the details based on the upcoming plot outline. If you manage to cover all the outlined events before reaching {{num_lines}} lines, you can end your writing.
-
-Make sure your continuation smoothly integrates with the existing script. Use character dialogues to replace Narration wherever possible.
-
-You should output the script continuation in JSON format. Each line of the script includes the speaker "role" and his/her utterance "content". The speaker can only be chosen from Narration or one of the characters in the scene. Format example:
-```
-{"scripts": [{"role": "Speaker 1", "content": "..."}, {"role": "Speaker 2", "content": "..."}, {"role": "Narration", "content": "..."}, ...]}
-```
-{{~/system}}
-
-{{#user~}}
-Characters in the scene: {{characters}}
-
-Relations between characters:
-{{relations}}
-
-Existing plot outline:
-{{prev_outline}}
-{{background}}
-Upcoming plot outline:
-{{act_outline}}
-
-Based on the above information, please translate the upcoming plot outline into script format up to {{num_lines}} lines in JSON format. Ensure that the extended script seamlessly integrates with the existing one and follows the upcoming plot outline. Note that the speaker can only be Narration or one of the characters in this scene. Use character dialogues to replace Narration wherever possible.
-{{~/user}}
-
-{{#assistant~}}
-{{gen 'ans' temperature=0.6 max_tokens=1000 stream=False response_format={ "type": "json_object" }}}
-{{~/assistant}}
-"""
-
 PROMPT_DIRECTOR_INSTRUCT = """
 {{#system~}}
-Assuming you are currently a director, guiding a scene in a drama.
+假设你目前是这部戏剧中一个场景的导演。
 
-Given the characters, the plot objective of this scene and the existing script, please provide a brief synopsis of the upcoming line for the actor. However, do not directly provide the original script line.
+给定该场景的角色、剧情目标和现有剧本，请为演员提供下一行台词的简要概述。但不要直接提供原始台词。
 
-Then, use keywords to instruct the actor on how to role-play the character in the next line, so that the actor can play out the dialogue that fits the script, the characterization and the plot objective.
+然后，使用关键词指导演员如何在下一行中扮演角色，使其台词符合剧本、人物刻画和剧情目标。
 {{~/system}}
 
 {{#user~}}
-Characters in the scene: {{characters}}
+场景中的角色：{{characters}}
 
-Relations between characters:
+角色之间的关系：
 {{relations}}
 
-Existing script: 
+现有剧本：
 {{dialogue_history}}
 {{background}}
-Plot objective of this scene: {{act_goal}}
+本场景的剧情目标：{{act_goal}}
 
-According to the script, the character of the following line is {{actor_name}}, and the line content is: {{content}}.
-However, do not directly provide the original line for the actor that is role-playing this character.
+根据剧本，下一行台词的角色是{{actor_name}}，台词内容为：{{content}}。
+但不要直接为扮演该角色的演员提供原始台词。
 
-Description of the {{actor_name}}: {{description}}
+{{actor_name}}的角色描述：{{description}}
 
-Based on the above information, please provide a brief synopsis of the upcoming line for the actor, but do not directly provide the original script line. Then, generate several keywords to instruct the actor how to play out the dialogue that fits the script, the plot objective and the characteristics of {{actor_name}}.
+基于以上信息，请为演员提供下一行台词的简要概述，但不要直接提供原始台词。然后，生成若干关键词，以指导演员如何表演该台词，使其符合剧本、剧情目标和{{actor_name}}的角色特征。
 {{~/user}}
 
 {{#assistant~}}
@@ -276,25 +275,25 @@ Based on the above information, please provide a brief synopsis of the upcoming 
 
 PROMPT_DIRECTOR_CHECK_GOAL = """
 {{#system~}}
-Assuming you are currently a director, guiding a scene in a drama.
+假设你目前是这部戏剧中一个场景的导演。
 
-Given the characters and the plot objective of this scene, please determine whether the existing script has included the plot objective.
+给定该场景的角色和剧情目标，请判断现有剧本是否包含了该剧情目标。
 
-You should output your answer in JSON format. Give your result in "completed", and explain your reason in "reason". Format example:
+你应以JSON格式输出答案。在“completed”中给出结果。如果现有剧本包含剧情目标，则“completed”为true，否则为false。
 ```
-{"completed": true or false, "reason": "Your reason"}
+{"completed": true or false}
 ```
 {{~/system}}
 
 {{#user~}}
-Characters in the scene: {{characters}}
+场景中的角色：{{characters}}
 
-Existing script:
+现有剧本：
 {{dialogue_history}}
 {{background}}
-Plot objective of the scene: {{act_goal}}
+本场景的剧情目标：{{act_goal}}
 
-Based on the information above, please determine whether the existing script has included the plot objective in JSON format.
+基于以上信息，请以JSON格式判断现有剧本是否包含该剧情目标。
 {{~/user}}
 
 {{#assistant~}}
@@ -306,17 +305,17 @@ NG_WORDS = ["language model", "I'm sorry,", "Sorry,", "fulfill.*request", "scrip
 
 PROMPT_ACTOR_DIALOGUE_SYSTEM = """
 {{#system~}}
-Assuming you are currently an actor performing in a drama play. Your role is {{name}}.
+{{name}}目前正在一部戏剧中表演。你的角色是{{name}}。
 
-Background of the drama script: {{background}}
+戏剧剧本背景：{{background}}
 
-Character description for {{name}}: {{description}}
+{{name}}的角色描述：{{description}}
 
-Based on the information above, I will tell you the script that has unfolded so far in the play. Please role-play as {{name}} and respond with an appropriate line of the dialogue.
+基于上述信息，我将告诉你至今为止演出的剧本。请以{{name}}的身份进行角色扮演，并回应一句适当的台词。
 
-Do not role-play other characters; generate only what your character would say. Avoid multi-turn responses; generate only the next line. Do not repeat the existing script. You can output only one line of text.
+不要扮演其他角色；只生成你的角色会说的内容。避免多轮回应；只生成下一行。不要重复已存在的剧本。你只能输出一行文本。
 
-A director will guide you on how to better embody your role. Consider the context, director's guidance, your character's image, memories, and impressions on others to generate the most fitting line of dialogue as an actor.
+导演会指导你如何更好地体现你的角色。请考虑上下文、导演的指导、你的角色形象、记忆和对他人的印象，以生成最适合的台词。
 {{~/system}}
 """
 

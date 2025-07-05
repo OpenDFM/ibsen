@@ -1,349 +1,349 @@
 {
-    "title": "Hedda Gai's Press Conference",
-    "note": "Modern re-create of Hedda Gabler. This is the mzgame version of original script settings: some empty acts are added to adapt to the game settings.",
-    "intro": "You are Edward Helson, a reporter from the publication \"New Left Review\". You are going to attend a press conference hold by Hedda Gai. ",
+    "title": "盖海妲的新闻发布会",
+    "note": "现代重塑版的《海妲·盖布勒》。这是原剧本设定的mzgame版本：为适应游戏需要，增加了一些空场次。",
+    "intro": "你是爱德华·海尔森，来自《新左派评论》的记者。你将参加由盖海妲主持的新闻发布会。",
     "actors": {
-        "Hedda Gai": {
-            "name": "Hedda Gai",
-            "description": "Hedda Gai, well-educated and hailing from a once-prominent but now declining family, is vying for the presidency to uphold her family's legacy. In public, she carefully manages her image, though an inherent arrogance often surfaces in her conversations. When faced with policy-related queries, she responds with diplomatic finesse, using terms like feminism and freedom to deflect criticism. In handling unreasonable or impolite questions, she employs subtle sarcasm and counterquestions. However, beneath her outward confidence lies a complex and vulnerable interior. Despite appearing advantaged, her strengths also serve as constraints. There's a part of her longing to break free from these constraints, which becomes apparent only under persistent questioning. For instance, she is frustrated with her mediocre and selfish husband, secretly admires Thea Fu's courage, and yearns for the passion and freedom embodied by Eilert Luo. These aspects unfold through her relationships with other characters and her emotional connections and imaginings about them.",
+        "盖海妲": {
+            "name": "盖海妲",
+            "description": "盖海妲，受过良好教育，出身曾经显赫但如今没落的家族，正在争取总统职位以维护家族荣耀。公众面前，她精心管理自己的形象，但在谈话中常流露出傲慢。面对政策相关提问时，她巧妙地以“女权”和“自由”等术语化解批评。应对无理或失礼的问题时，她会用微妙的讽刺和反问。然而，外表自信的背后，她内心复杂且脆弱。尽管看似优势明显，她的种种优势也成了束缚。她渴望挣脱这些束缚，但只有在持续追问时才显露端倪。例如，她对平庸自私的丈夫感到不满，暗中钦佩符黛雅的勇气，渴望罗艾勒身上那种激情与自由。这些情感通过她与其他角色的关系，以及她对他们的情感联结与想象而展现。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president.",
-                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
-                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a frequent visitor to the Hedda Gai household, is a chief judge secretly harboring desires for Hedda Gai's body.",
-                "Edward Helson": "Edward Helson, a reporter.",
-                "John": "John, a reporter.",
-                "Peter": "Peter, a reporter.",
-                "Mary": "Mary, a reporter."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手。",
+                "罗艾勒": "罗艾勒，盖海妲的前情人，经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，常造访盖海妲家中的首席法官，暗中垂涎盖海妲的身体。",
+                "海尔森": "爱德华·海尔森，记者。",
+                "约翰": "约翰，记者。",
+                "彼得": "彼得，记者。",
+                "玛丽": "玛丽，记者。"
             }
         },
-        "George Dai": {
-            "name": "George Dai",
-            "description": "George Dai is an economics professor at Harvard University, a dedicated academic, and an honest while still selfish man. He loves his wife, Hedda Gai, and feels that he has both his career and family under control. George Dai is also a somewhat hesitant individual and tends to stutter when speaking.",
+        "戴乔治": {
+            "name": "戴乔治",
+            "description": "戴乔治是哈佛大学的一名经济学教授，勤勉学术、诚实但略显自私。他深爱妻子盖海妲，觉得自己事业和家庭都掌控在手。同时，他有些犹豫，说话时常会结结巴巴。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, the wife of George Dai, a female politician, is running for president.",
-                "George Dai": "George Dai, a macroeconomist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
-                "Eilert Luo": "Eilert Luo, a peer and competitor of George Dai, a microeconomist, and an aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a frequent visitor to the household, is a chief judge.",
-                "Edward Helson": "Edward Helson, a reporter.",
-                "John": "John, a reporter.",
-                "Peter": "Peter, a reporter.",
-                "Mary": "Mary, a reporter."
+                "盖海妲": "盖海妲，戴乔治的妻子，这位女性政治家正在竞选总统。",
+                "戴乔治": "戴乔治，一位宏观经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手。",
+                "罗艾勒": "罗艾勒，戴乔治的同行与竞争对手，微观经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，常造访该家庭的首席法官。",
+                "海尔森": "爱德华·海尔森，记者。",
+                "约翰": "约翰，记者。",
+                "彼得": "彼得，记者。",
+                "玛丽": "玛丽，记者。"
             }
         },
-        "Brack": {
-            "name": "Brack",
-            "description": "Brack sees himself as a cunning and manipulative man, who enjoys playing power games with those around him.",
+        "卑锐客": {
+            "name": "卑锐客",
+            "description": "卑锐客自视狡猾、善于操控，他喜欢与身边人玩弄权力游戏。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president. Brack secretly harbors desires for Hedda Gai's body.",
-                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai.",
-                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a chief judge in his 50s.",
-                "Edward Helson": "Edward Helson, a reporter.",
-                "John": "John, a reporter.",
-                "Peter": "Peter, a reporter.",
-                "Mary": "Mary, a reporter."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统。卑锐客暗地里垂涎盖海妲的身体。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手。",
+                "罗艾勒": "罗艾勒，盖海妲的前情人，经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，五十多岁的首席法官。",
+                "海尔森": "爱德华·海尔森，记者。",
+                "约翰": "约翰，记者。",
+                "彼得": "彼得，记者。",
+                "玛丽": "玛丽，记者。"
             }
         },
-        "Berta": {
-            "name": "Berta",
-            "description": "Berta is Hedda Gai's personal assistant and is responsible for keeping track of Hedda Gai's schedule.",
+        "柏莎": {
+            "name": "柏莎",
+            "description": "柏莎是盖海妲的私人助理，负责管理盖海妲的日程安排。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president.",
-                "George Dai": "George Dai, the husband of Hedda Gai, an economist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。"
             }
         },
-        "John": {
-            "name": "John",
-            "description": "John is a journalist in the economic field, working for the publication \"Economic World\". His reporting tends to be conservative, with a right-leaning political perspective.",
+        "约翰": {
+            "name": "约翰",
+            "description": "约翰是一名经济领域的记者，供职于《经济世界》刊物。他的报道倾向保守，在政治观点上偏向右翼。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
-                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
-                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a chief judge.",
-                "Edward Helson": "Edward Helson, the leftist economic reporter, a friend of John.",
-                "John": "John, an economist reporter.",
-                "Peter": "Peter, a political reporter.",
-                "Mary": "Mary, an entertainment reporter."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统，主张右翼经济政策。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位宏观经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手，主张左翼经济政策。",
+                "罗艾勒": "罗艾勒，盖海妲的前情人，经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，首席法官。",
+                "海尔森": "爱德华·海尔森，左翼经济记者，约翰的朋友。",
+                "约翰": "约翰，一名经济记者。",
+                "彼得": "彼得，一名政治记者。",
+                "玛丽": "玛丽，一名娱乐记者。"
             }
         },
-        "Peter": {
-            "name": "Peter",
-            "description": "Peter is a political journalist working for the newspaper \"The Storm\", aiming to provide objective and truthful reporting without a particular bias towards the left or right.",
+        "彼得": {
+            "name": "彼得",
+            "description": "彼得是一名政治记者，为《风云》报工作，力求提供客观真实的报道，不偏向左或右。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
-                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
-                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a chief judge.",
-                "Edward Helson": "Edward Helson, a leftist economic reporter.",
-                "John": "John, a rightist economist reporter.",
-                "Peter": "Peter, a political reporter.",
-                "Mary": "Mary, an entertainment reporter, disapproved by Peter."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统，主张右翼经济政策。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位宏观经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手，主张左翼经济政策。",
+                "罗艾勒": "罗艾勒，盖海妲的前情人，经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，首席法官。",
+                "海尔森": "爱德华·海尔森，左翼经济记者。",
+                "约翰": "约翰，右翼经济记者。",
+                "彼得": "彼得，一名政治记者。",
+                "玛丽": "玛丽，一名娱乐记者，彼得并不赞同她的做法。"
             }
         },
-        "Mary": {
-            "name": "Mary",
-            "description": "Mary is an entertainment journalist working for \"Supernova Entertainment\", a publication that tends to focus on sensational and flamboyant stories. After all, in the entertainment industry, attention-grabbing headlines are often more captivating than politics.",
+        "玛丽": {
+            "name": "玛丽",
+            "description": "玛丽是一名为《超新星娱乐》工作的娱乐记者，该刊物往往聚焦耸人听闻的故事。毕竟在娱乐圈，吸睛的头条往往比政治更能引发关注。",
             "relations": {
-                "Hedda Gai": "Hedda Gai, a female politician, is running for president, advocating rightist economic policies.",
-                "George Dai": "George Dai, the husband of Hedda Gai, a macroeconomist.",
-                "Berta": "Berta, the personal assistant of Hedda Gai.",
-                "Thea Fu": "Thea Fu, the election opponent of Hedda Gai, advocating leftist economic policies.",
-                "Eilert Luo": "Eilert Luo, former lover of Hedda Gai, an economist and aide to Thea Fu, has tragically passed away by suicide.",
-                "Brack": "Brack, a chief judge.",
-                "Edward Helson": "Edward Helson, an economic reporter.",
-                "John": "John, an economist reporter.",
-                "Peter": "Peter, a political reporter.",
-                "Mary": "Mary, an entertainment reporter."
+                "盖海妲": "盖海妲，这位女性政治家正在竞选总统，主张右翼经济政策。",
+                "戴乔治": "戴乔治，盖海妲的丈夫，是一位宏观经济学家。",
+                "柏莎": "柏莎，盖海妲的私人助理。",
+                "符黛雅": "符黛雅，盖海妲的竞选对手，主张左翼经济政策。",
+                "罗艾勒": "罗艾勒，盖海妲的前情人，经济学家，符黛雅的助手，已因自杀去世。",
+                "卑锐客": "卑锐客，首席法官。",
+                "海尔森": "爱德华·海尔森，一名经济记者。",
+                "约翰": "约翰，一名经济记者。",
+                "彼得": "彼得，一名政治记者。",
+                "玛丽": "玛丽，一名娱乐记者。"
             }
         }
     },
     "acts": [
         [
             {
-                "title": "Act 1 - Hotel corridor",
-                "note": "An empty act",
-                "place": "Hotel corridor",
+                "title": "第一幕 – 酒店走廊",
+                "note": "空场次",
+                "place": "酒店走廊",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 2 - Hotel corridor"
+                "next_act": "第二幕 – 酒店走廊"
             },
             {
-                "title": "Act 1 - Hotel lobby",
-                "note": "Hedda and George is chatting in the lobby",
-                "place": "Lobby",
-                "background": "Before the press conference commemorating Eilert Luo begins, in the hotel lobby. Assistant Berta rushes out of the lobby with the public relations team, leaving only Hedda Gai and George Dai.",
+                "title": "第一幕 – 酒店大堂",
+                "note": "盖海妲和戴乔治在大堂里交谈",
+                "place": "酒店大堂",
+                "background": "在纪念罗艾勒的新闻发布会开始前，在酒店大堂。助理柏莎匆匆带着公关团队从大堂离开，只剩下盖海妲和戴乔治。",
                 "actors": [
-                    "Hedda Gai",
-                    "George Dai",
-                    "Berta"
+                    "盖海妲",
+                    "戴乔治",
+                    "柏莎"
                 ],
                 "goals": [
-                    "Hedda Gai chatted casually with George Dai about past events.",
-                    "When the chat went on for too long, or when the conversation touched on topics related to George Dai wanting Hedda Gai to have a child, assistant Berta rushed into the lounge, interrupting the conversation. She informed Hedda and George that the press conference was about to start and urged them to hurry over.",
-                    "Hedda Gai and George Dai left the lobby."
+                    "盖海妲与戴乔治随意交谈过去的往事。",
+                    "当谈话时间过长，或话题触及戴乔治想让盖海妲要孩子的话题时，助理柏莎急匆匆走进休息室，打断两人的谈话。她告诉盖海妲和戴乔治新闻发布会即将开始，催促他们赶过去。",
+                    "盖海妲和戴乔治离开大堂。"
                 ],
-                "player_in": "Suddenly, reporter Edward Helson enters the lobby, seeming to eavesdrop on their conversation.",
-                "player_out": "Edward Helson leaves the lobby.",
-                "next_act": "Act 2 - Hotel lobby"
+                "player_in": "突然，记者爱德华·海尔森进入大堂，似乎在偷听他们的谈话。",
+                "player_out": "爱德华·海尔森离开大堂。",
+                "next_act": "第二幕 – 酒店大堂"
             },
             {
-                "title": "Act 1 - Press conference hall",
-                "note": "Reporters are chatting in the hall",
-                "place": "Press conference hall",
-                "background": "Before the press conference to mourn Eilert Luo, many reporters and citizens have already waiting in the hall. Some reporters begin to chat about their expectations for this press conference.",
+                "title": "第一幕 – 新闻发布会大厅",
+                "note": "记者们在大厅里交谈",
+                "place": "新闻发布会大厅",
+                "background": "在悼念罗艾勒的新闻发布会正式开始前，许多记者和市民已经在大厅等待。一些记者开始互相交谈，对本次发布会的期待。",
                 "actors": [
-                    "John",
-                    "Peter",
-                    "Mary"
+                    "约翰",
+                    "彼得",
+                    "玛丽"
                 ],
                 "goals": [
-                    "Before the press conference began, reporters chatted with each other."
+                    "在发布会开始前，记者们互相聊天。"
                 ],
-                "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall.",
-                "next_act": "Act 2 - Press conference hall"
+                "player_in": "记者爱德华·海尔森进入大厅。",
+                "player_out": "记者爱德华·海尔森离开大厅。",
+                "next_act": "第二幕 – 新闻发布会大厅"
             },
             {
-                "title": "Act 1 - Press conference backstage",
-                "note": "An empty act",
-                "place": "Press conference backstage",
+                "title": "第一幕 – 新闻发布会后台",
+                "note": "空场次",
+                "place": "新闻发布会后台",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 2 - Press conference backstage"
+                "next_act": "第二幕 – 新闻发布会后台"
             }
         ],
         [
             {
-                "title": "Act 2 - Hotel corridor",
-                "note": "An empty act",
-                "place": "Hotel corridor",
+                "title": "第二幕 – 酒店走廊",
+                "note": "空场次",
+                "place": "酒店走廊",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 3 - Hotel corridor"
+                "next_act": "第三幕 – 酒店走廊"
             },
             {
-                "title": "Act 2 - Hotel lobby",
-                "note": "An empty act",
-                "place": "Lobby",
+                "title": "第二幕 – 酒店大堂",
+                "note": "空场次",
+                "place": "酒店大堂",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 3 - Hotel lobby"
+                "next_act": "第三幕 – 酒店大堂"
             },
             {
-                "title": "Act 2 - Press conference hall",
-                "note": "The press conference begins",
-                "place": "Press conference hall",
-                "background": "The press conference finally begins. Hedda Gai and George Dai walk up to the podium together.",
+                "title": "第二幕 – 新闻发布会大厅",
+                "note": "新闻发布会开始",
+                "place": "新闻发布会大厅",
+                "background": "新闻发布会终于开始。盖海妲与戴乔治一同走上讲台。",
                 "actors": [
-                    "Hedda Gai",
-                    "George Dai",
-                    "John",
-                    "Peter",
-                    "Mary"
+                    "盖海妲",
+                    "戴乔治",
+                    "约翰",
+                    "彼得",
+                    "玛丽"
                 ],
                 "goals": [
-                    "Hedda Gai began to speak, revealing her shock and sadness over Eilert Luo's suicide.",
-                    "Reporters present, including John, Peter, Mary, etc., started asking Hedda Gai questions related to Eilert Luo's suicide. Hedda Gai responds to the reporters' questions, momentarily slipping and revealing emotions towards Eilert Luo, but quickly covered it up."
+                    "盖海妲开口发言，流露出对罗艾勒自杀的震惊与悲痛。",
+                    "在场的记者，包括约翰、彼得、玛丽等，开始向盖海妲提问与罗艾勒自杀有关的问题。盖海妲回应记者提问时，偶尔情不自禁流露对罗艾勒的感情，但很快掩饰过去。"
                 ],
-                "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall.",
-                "next_act": "Act 3 - Press conference hall"
+                "player_in": "记者爱德华·海尔森进入大厅。",
+                "player_out": "记者爱德华·海尔森离开大厅。",
+                "next_act": "第三幕 – 新闻发布会大厅"
             },
             {
-                "title": "Act 2 - Press conference backstage",
-                "note": "An empty act",
-                "place": "Press conference backstage",
+                "title": "第二幕 – 新闻发布会后台",
+                "note": "空场次",
+                "place": "新闻发布会后台",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 3 - Press conference backstage"
+                "next_act": "第三幕 – 新闻发布会后台"
             }
         ],
         [
             {
-                "title": "Act 3 - Hotel corridor",
-                "note": "An empty act",
-                "place": "Hotel corridor",
+                "title": "第三幕 – 酒店走廊",
+                "note": "空场次",
+                "place": "酒店走廊",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 4 - Hotel corridor"
+                "next_act": "第四幕 – 酒店走廊"
             },
             {
-                "title": "Act 3 - Hotel lobby",
-                "note": "An empty act",
-                "place": "Lobby",
+                "title": "第三幕 – 酒店大堂",
+                "note": "空场次",
+                "place": "酒店大堂",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 4 - Hotel lobby"
+                "next_act": "第四幕 – 酒店大堂"
             },
             {
-                "title": "Act 3 - Press conference hall",
-                "note": "The press conference has begun for a while",
-                "place": "Press conference hall",
-                "background": "Suddenly, the press conference is filled with the sound of ringing phones. It turns out that Thea Fu has issued a statement, stating that the research conducted by Eilert Luo is a collaborative effort, and she still possesses notes from the research process, making it highly likely to reconstruct Eilert Luo's work. Thea Fu has already provided the notes to Harvard University, and Harvard hopes that George Dai, with the closest expertise, can take over the research project.",
+                "title": "第三幕 – 新闻发布会大厅",
+                "note": "新闻发布会已进行一段时间",
+                "place": "新闻发布会大厅",
+                "background": "突然，发布会现场响起接连不断的手机铃声。原来符黛雅发布声明称，罗艾勒的研究是合作成果，她仍保有研究过程中的笔记，极有可能重建罗艾勒的工作。符黛雅已将这些笔记交给哈佛大学，而哈佛方面希望戴乔治作为最接近该领域的专家，接手这项研究项目。",
                 "actors": [
-                    "Hedda Gai",
-                    "George Dai",
-                    "John",
-                    "Peter",
-                    "Mary"
+                    "盖海妲",
+                    "戴乔治",
+                    "约翰",
+                    "彼得",
+                    "玛丽"
                 ],
                 "goals": [
-                    "Thea Fu's statement caused a commotion on the scene. Journalists like John, Peter, Mary, and others deviated from their original plan of questioning Hedda Gai, and directly confronted George Dai about the possibility of taking over Eilert Luo's research - that would mean a support for Thea. Internally, George Dai knew that this research contradicted Hedda Gai's policies, but he also recognized its societal value. Upon hearing the news, he initially appeared shocked, followed by a mix of joy and uncertainty, unsure whether to take on the research.", 
-                    "In an attempt to maintain a facade of tranquility, Hedda Gai had to reassure the journalists that both she and her husband only served the public interest. However, George Dai took it at face value and immediately expressed his commitment to completing the research based on Thea Fu's notes, causing a stir in the room. Reporters all have astonished by the decision of George Dai.",
-                    "Hedda Gai reluctantly announced an end to today's press conference and left the scene. At that moment, reporter Mary suddenly asked if she was pregnant. Hedda Gai, rarely displaying anger, retorted that such a question was quite inappropriate."
+                    "符黛雅的声明引发现场骚动。约翰、彼得、玛丽等记者不再继续问盖海妲，而是直接围着戴乔治询问是否会接手罗艾勒的研究——这意味着对符黛雅的支持。戴乔治心里清楚，这项研究与盖海妲的政策相冲突，但他也认识到社会意义。听到消息后，他先是惊愕，随后出现复杂的喜悦与犹豫，不确定是否要承担这项研究。",
+                    "为了保持镇定，盖海妲不得不向记者们保证，她和丈夫都只为公众利益服务。然而，戴乔治当真了，立即表示愿意根据符黛雅的笔记完成研究，引发全场哗然。记者们对戴乔治的决定都感到震惊。",
+                    "盖海妲无奈宣布今天的新闻发布会结束，离开现场。此时，记者玛丽突然问她是否怀孕。盖海妲罕见地发怒，反驳说这种问题相当不合适。"
                 ],
-                "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall.",
-                "next_act": "Act 4 - Press conference hall"
+                "player_in": "记者爱德华·海尔森进入大厅。",
+                "player_out": "记者爱德华·海尔森离开大厅。",
+                "next_act": "第四幕 – 新闻发布会大厅"
             },
             {
-                "title": "Act 3 - Press conference backstage",
-                "note": "An empty act",
-                "place": "Press conference backstage",
+                "title": "第三幕 – 新闻发布会后台",
+                "note": "空场次",
+                "place": "新闻发布会后台",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 4 - Press conference backstage"
+                "next_act": "第四幕 – 新闻发布会后台"
             }
         ],
         [
             {
-                "title": "Act 4 - Hotel corridor",
-                "note": "An empty act",
-                "place": "Hotel corridor",
+                "title": "第四幕 – 酒店走廊",
+                "note": "空场次",
+                "place": "酒店走廊",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 5 - Hotel corridor"
+                "next_act": "第五幕 – 酒店走廊"
             },
             {
-                "title": "Act 4 - Hotel lobby",
-                "note": "An empty act",
-                "place": "Lobby",
+                "title": "第四幕 – 酒店大堂",
+                "note": "空场次",
+                "place": "酒店大堂",
                 "background": "",
                 "actors": [],
                 "goals": [],
                 "player_in": "",
                 "player_out": "",
-                "next_act": "Act 5 - Hotel lobby"
+                "next_act": "第五幕 – 酒店大堂"
             },
             {
-                "title": "Act 4 - Press conference hall",
-                "note": "After the conference, reporters chat with each other",
-                "place": "Press conference hall",
-                "background": "The press conference rushes to the end.",
+                "title": "第四幕 – 新闻发布会大厅",
+                "note": "发布会结束后，记者们交谈",
+                "place": "新闻发布会大厅",
+                "background": "新闻发布会匆匆结束。",
                 "actors": [
-                    "John",
-                    "Peter",
-                    "Mary"
+                    "约翰",
+                    "彼得",
+                    "玛丽"
                 ],
                 "goals": [
-                    "The reporters remained at the scene exchanged thoughts on the just-concluded press conference. They continued their discussions until staff reminded them to clear the venue, at which point the journalists departed."
+                    "记者们仍留在现场，就刚刚结束的新闻发布会交换看法。他们继续讨论，直到工作人员提醒清场，记者们才离开。"
                 ],
-                "player_in": "Reporter Edward Helson enters the hall.",
-                "player_out": "Reporter Edward Helson leaves the hall.",
-                "next_act": "Act 5 - Press conference hall"
+                "player_in": "记者爱德华·海尔森进入大厅。",
+                "player_out": "记者爱德华·海尔森离开大厅。",
+                "next_act": "第五幕 – 新闻发布会大厅"
             },
             {
-                "title": "Act 4 - Press conference backstage",
-                "note": "After the conference, Hedda talks with Brack",
-                "place": "Press conference backstage",
-                "background": "Hedda briskly enters the backstage of the press conference, only to find Brack waiting for her. Brack intercepts Hedda, with George Dai following closely behind, intending to join their conversation. However, George's phone rings, prompting him to answer it and walk to another corner alone.",
+                "title": "第四幕 – 新闻发布会后台",
+                "note": "发布会结束后，盖海妲与卑锐客交谈",
+                "place": "新闻发布会后台",
+                "background": "盖海妲匆忙进入新闻发布会后台，却发现卑锐客在等她。卑锐客拦住盖海妲，戴乔治紧随其后，想加入谈话。然而，戴乔治的手机响起，他接听后独自走向一旁。",
                 "actors": [
-                    "Hedda Gai",
-                    "Brack"
+                    "盖海妲",
+                    "卑锐客"
                 ],
                 "goals": [
-                    "Brack showed disdain for the developments at the press conference. Hedda, wanting to ignore Brack, was halted when he mentioned news about Eilert Luo.",
-                    "Brack informed Hedda that Eilert Luo's death was not honorable – he shot himself in the abdomen during suicide. Brack also hinted to Hedda that he knew the gun Eilert used for suicide was given to him by her, implying a potential threat."
+                    "卑锐客对发布会现场的事态发展表示轻蔑。盖海妲想无视他，却在他提及罗艾勒消息时被迫停下。",
+                    "卑锐客告诉盖海妲，罗艾勒的死并不光彩——他自杀时头部中弹。卑锐客还暗示知道罗艾勒用来自杀的枪是她给他的，暗含威胁。"
                 ],
-                "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
-                "player_out": "Reporter Edward Helson leaves the backstage.",
-                "next_act": "Act 5 - Press conference backstage"
+                "player_in": "突然，记者爱德华·海尔森进入后台，似乎在偷听他们的对话。",
+                "player_out": "记者爱德华·海尔森离开后台。",
+                "next_act": "第五幕 – 新闻发布会后台"
             }
         ],
         [
             {
-                "title": "Act 5 - Hotel corridor",
-                "note": "An empty act",
-                "place": "Hotel corridor",
+                "title": "第五幕 – 酒店走廊",
+                "note": "空场次",
+                "place": "酒店走廊",
                 "background": "",
                 "actors": [],
                 "goals": [],
@@ -352,9 +352,9 @@
                 "next_act": ""
             },
             {
-                "title": "Act 5 - Hotel lobby",
-                "note": "An empty act",
-                "place": "Lobby",
+                "title": "第五幕 – 酒店大堂",
+                "note": "空场次",
+                "place": "酒店大堂",
                 "background": "",
                 "actors": [],
                 "goals": [],
@@ -363,9 +363,9 @@
                 "next_act": ""
             },
             {
-                "title": "Act 5 - Press conference hall",
-                "note": "An empty act",
-                "place": "Press conference hall",
+                "title": "第五幕 – 新闻发布会大厅",
+                "note": "空场次",
+                "place": "新闻发布会大厅",
                 "background": "",
                 "actors": [],
                 "goals": [],
@@ -374,21 +374,21 @@
                 "next_act": ""
             },
             {
-                "title": "Act 5 - Press conference backstage",
-                "note": "George Dai joins the conversation",
-                "place": "Press conference backstage",
-                "background": "At this moment of confrontation between Brack and Hedda Gai, George concludes his phone call and walks towards the two of them.",
+                "title": "第五幕 – 新闻发布会后台",
+                "note": "戴乔治加入对话",
+                "place": "新闻发布会后台",
+                "background": "在卑锐客与盖海妲对峙之际，戴乔治结束通话，朝两人走来。",
                 "actors": [
-                    "Hedda Gai",
-                    "Brack",
-                    "George Dai"
+                    "盖海妲",
+                    "卑锐客",
+                    "戴乔治"
                 ],
                 "goals": [
-                    "George Dai excitedly informed Hedda that Thea Fu had prepared a research room for him and he was eager to start his research immediately. Hedda asked, \"What about me?\" George affectionately told her not to miss him too much.",
-                    "Brack suggested taking care of Hedda Gai during this time, with George's approval. Unable to bear it any longer, Hedda Gai forcefully pushed away George and ran offstage."
+                    "戴乔治兴奋地告诉盖海妲，符黛雅为他准备了一个研究室，他迫不及待地想立刻开始研究。盖海妲问：“那我怎么办？”戴乔治深情地告诉她别太想他。",
+                    "卑锐客建议在此期间照顾盖海妲，戴乔治表示赞同。盖海妲再也忍不住，奋力推开戴乔治，跑下舞台。"
                 ],
-                "player_in": "Suddenly, reporter Edward Helson enters the backstage, seeming to eavesdrop on their conversation.",
-                "player_out": "Reporter Edward Helson leaves the backstage.",
+                "player_in": "突然，记者爱德华·海尔森进入后台，似乎在偷听他们的对话。",
+                "player_out": "记者爱德华·海尔森离开后台。",
                 "next_act": ""
             }
         ]

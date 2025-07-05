@@ -84,7 +84,7 @@ class CorpusDatabase:
         The page_content of the documents in the returned list represents the user's question, and metadata["response"] represents the actor's answer.
         """
         documents = []
-        with open(corpus_path, "r") as f:
+        with open(corpus_path, "r", encoding="utf-8") as f:
             try:
                 data = pd.read_csv(f)
             except UnicodeDecodeError:

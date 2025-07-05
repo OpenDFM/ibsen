@@ -148,7 +148,7 @@ class DialogueLogger:
     [{"role": "...", "content": "..."}, ...]
     ```
     """
-    def __init__(self, prompter, owner: str, background="", max_active_num=16, reserve_active_num=8) -> None:
+    def __init__(self, prompter, owner: str, background="", max_active_num=20, reserve_active_num=12) -> None:
         self.prompter = prompter
         self.owner = owner
 
@@ -173,8 +173,8 @@ class DialogueLogger:
             summarized_history = self.prompter.get_dialogue_summary(self.owner, self.active_history[1:-self.reserve_active_num])
             self.active_history = self.active_history[-self.reserve_active_num:]
             if self.background != "":
-                self.active_history.insert(0, {"role": "Narration", "content": self.background})
-            self.active_history.insert(0, {"role": "Narration", "content": "Before this, " + "; ".join(summarized_history)})
+                self.active_history.insert(0, {"role": "旁白", "content": self.background})
+            self.active_history.insert(0, {"role": "旁白", "content": "在此之前，" + "；".join(summarized_history)})
         return summarized_history
 
 
@@ -231,7 +231,7 @@ def parse_history_to_str(history: List[Dict[str, str]]) -> str:
     result = ""
     for turn in history:
         assert "role" in turn and "content" in turn, turn
-        if turn["role"] == "Narration":
+        if turn["role"] == "旁白":
             result += f"（{turn['content']}）\n\n"
         else:
             result += f"{turn['role']}: {turn['content']}\n\n"

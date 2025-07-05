@@ -1,6 +1,7 @@
 import json
 import os
 from typing import Dict, List
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import guidance
 from langchain.embeddings import OpenAIEmbeddings
@@ -50,9 +51,11 @@ class GenerativeStage:
 
     def _init_stage(self):
         self.act_no = -1
-        for actor_name, actor_info in self.script.actors.items():
+        actors_data = list(self.script.actors.items())
+
+        def _create_one_actor(actor_name, actor_info):
             new_actor = GenerativeActor(
-                prompter=Prompter(guidance, default_llm=self.default_llm), 
+                prompter=Prompter(guidance, default_llm=self.default_llm),
                 name=actor_name,
                 embeddings_model=OpenAIEmbeddings(),
             )
@@ -61,7 +64,16 @@ class GenerativeStage:
             for relation_name, relation in actor_info["relations"].items():
                 new_actor.add_character(character=relation_name, relation=relation, alias=relation_name.split())
             new_actor.get_and_add_impressions()
-            self.actors[actor_name] = new_actor
+            return actor_name, new_actor
+
+        with ThreadPoolExecutor(max_workers=len(actors_data)) as executor:
+            futures = {
+                executor.submit(_create_one_actor, name, info): name
+                for name, info in actors_data
+            }
+            for future in as_completed(futures):
+                name, actor_obj = future.result()
+                self.actors[name] = actor_obj
 
         for act in self.script.acts:
             for subact in act:
@@ -101,7 +113,7 @@ class GenerativeStage:
         for name in self.current_act_names:
             if not self.directors[name].completed:
                 self.directors[name].active = True
-                self.directors[name].add_dialogue_log({"role": "Narration", "content": self.directors[name].background})
+                self.directors[name].add_dialogue_log({"role": "旁白", "content": self.directors[name].background})
         for player in self.players.values():
             if player.current_act == "":
                 player.current_act = self.current_act_names[0]
@@ -139,7 +151,7 @@ class GenerativeStage:
             current_act_name = player.current_act
             current_director = self.directors[current_act_name]
             if current_director.interrupted:
-                current_director.add_dialogue_log({"role": "Narration", "content": f"{player.name} does nothing."})
+                current_director.add_dialogue_log({"role": "旁白", "content": f"{player.name}什么都没做。"})
         else:
             raise AssertionError(player.action)
 
@@ -154,10 +166,10 @@ class GenerativeStage:
             actor.current_datetime = self.current_datetime
 
         act_status = {}
-        for act_name in self.current_act_names:
+        def _step_one_act(act_name: str):
             director = self.directors[act_name]
             if not director.active:
-                continue
+                return act_name, None
 
             next_script = director.direct_next_turn()
             if next_script["role"] in director.players:
@@ -166,11 +178,21 @@ class GenerativeStage:
                 print(f"{next_script['role']}: {next_script['content']}")
                 director.add_dialogue_log(next_script)
             director.check_and_update_goal()
-            act_status[act_name] = {
+            return act_name, {
                 "next_script": next_script,
                 "active": director.active,
                 "players": [player.name for player in self.players.values() if player.current_act == act_name]
             }
+
+        with ThreadPoolExecutor(max_workers=len(self.current_act_names)) as executor:
+            futures = {
+                executor.submit(_step_one_act, name): name
+                for name in self.current_act_names
+            }
+            for future in as_completed(futures):
+                act_name, result = future.result()
+                if result is not None:
+                    act_status[act_name] = result
 
         self.save_stage_log(name=f"{self.title}_{self.log_identity}")
         if not self.is_current_acts_active():

@@ -7,3 +7,4 @@ langchain==0.0.354
 guidance==0.0.64
 tiktoken==0.7.0
 openai==0.28.0
+Levenshtein

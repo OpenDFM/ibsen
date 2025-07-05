@@ -53,7 +53,12 @@ class GenerativeActor:
             with open(profile_path, "r", encoding="utf-8") as profile_file:
                 self.profile_events = json.load(profile_file)
         
-        corpus_path = os.path.join(CORPUS_ROOT, self.name + ".csv")
+        if self.name == "盖海妲":
+            corpus_path = os.path.join(CORPUS_ROOT, "hedda.csv")
+        elif self.name == "戴乔治":
+            corpus_path = os.path.join(CORPUS_ROOT, "george.csv")
+        else:
+            corpus_path = os.path.join(CORPUS_ROOT, self.name + ".csv")
         if not os.path.exists(corpus_path):
             corpus_path = None
 
@@ -62,7 +67,8 @@ class GenerativeActor:
             index=faiss.IndexFlatL2(embedding_size), 
             docstore=InMemoryDocstore({}), 
             index_to_docstore_id={}, 
-            relevance_score_fn=cosine_score_normalizer
+            relevance_score_fn=cosine_score_normalizer,
+            normalize_L2=True
         )
         self.retriever = FAISSRetriever(
             vectorstore=memory_db, 
@@ -93,7 +99,7 @@ class GenerativeActor:
             )
             self.add_memory(memory_document, force_influence=True)
 
-    def add_character(self, character: str, alias: List[str]=[], relation: str="Not yet available", impression: str="Not yet available"):
+    def add_character(self, character: str, alias: List[str]=[], relation: str="暂无", impression: str="暂无"):
         character_document = Document(
             page_content=character,
             metadata={
@@ -122,7 +128,7 @@ class GenerativeActor:
             try:
                 doc.metadata["impression"] = impression_dict[doc.page_content]
             except KeyError:
-                doc.metadata["impression"] = "Not yet available"
+                doc.metadata["impression"] = "暂无"
     
     def get_impressions_of(self, characters: List[str]) -> Dict[str, str]:
         character_documents = self.character_db.docstore._dict.values()
@@ -228,7 +234,7 @@ class GenerativeActor:
         related_documents.extend(documents)
         for dialogue_log in self.dialogue_history.active_history[-3:]:
             utterance = ""
-            if dialogue_log["role"] != "Narration":
+            if dialogue_log["role"] != "旁白":
                 utterance += dialogue_log["role"] + ": "
             utterance += dialogue_log["content"]
             documents = self.retriever.get_relevant_documents(utterance, top_k=5, current_time=self.current_datetime)
@@ -250,10 +256,10 @@ class GenerativeActor:
             character_docs = self.get_related_character_docs(content)
             related_characters.extend([doc.page_content for doc in character_docs])
         related_characters = list(set(related_characters))
-        impressions = f"Impressions of {self.name} on characters below: \n"
+        impressions = f"{self.name}对下述角色的印象：\n"
         result = self.get_impressions_of(related_characters)
         for name, impression in result.items():
-            impressions += f"On {name}: {impression}\n"
+            impressions += f"对{name}：{impression}\n"
 
         related_memories = parse_document_to_str(related_documents, relevant_threshold=0.4)
         if examples == "":
@@ -287,10 +293,10 @@ class GenerativeActor:
         character_docs = self.get_related_character_docs(question)
         related_characters.extend([doc.page_content for doc in character_docs])
         related_characters = list(set(related_characters))
-        impressions = f"Impressions of {self.name} on characters below: \n"
+        impressions = f"{self.name}对下述角色的印象：\n"
         result = self.get_impressions_of(related_characters)
         for name, impression in result.items():
-            impressions += f"On {name}: {impression}\n"
+            impressions += f"对{name}：{impression}\n"
 
         related_memories = parse_document_to_str(documents, relevant_threshold=0.3)
         if examples == "":

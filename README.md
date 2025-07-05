@@ -1,44 +1,16 @@
 # IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation
 
-**IBSEN** is an original collaborative framework in the field of drama playing and script generation. Powered by LLM-based generative agents and the surveillance of the director agent, actor agents in the drama play could act towards the desired plot objectives and present their personality at the same time. This framework also allows human players to involve in the play and interact with the actors, while keeping the plot progressing towards the objective. Our paper is accepted by ACL 2024 Main. 
+该分支是IBSEN框架在RPG Maker MZ前端下的中文版本。与原始main分支下的frontend相比，我们增加了以下功能：
+- 允许并发：部署到网页端后，可以让多名玩家单独进行游戏。
+- 并行处理：步进时间时，将对每个演员的轮询改为并行处理，有效降低了响应时延。
+- 采访演员：点击场景中的角色，可以开启与角色的临时对话。这段临时对话不会对角色知识库以及接下来的对话产生影响。
 
-![](https://i.imgur.com/6dZHh52.png)
-
-This repository provides a simple terminal frontend to interact with IBSEN.
-
-### 🎉News: We have released a video-game frontend to interact with IBSEN! Check [frontend/](frontend/) for details.
-
-## Installation
-**NOTE:** We recommend creating a virtual environment to install dependencies because some of the package versions we use are relatively old and their behavior may be incompatible with newer versions of the packages.
+## 运行方法
+与main分支下的前端运行方法类似：首先在[Google Drive](https://drive.google.com/drive/folders/1QOMYozaVcXDmc_tcPGJruVwJRW9DU18u?usp=sharing)下载好前端文件，将`mzgame-zh`目录放到该根目录下，随后在[`api_key.py`](api_key.py)提供LLM服务的API，最后在根目录下运行：
+```bash
+python mzgame_frontend.py --frontend_port <frontend_port>
 ```
-pip install -r requirements.txt
-```
+网页前端会在`http://localhost:<frontend_port>`运行。使用浏览器进入到游戏界面后，需要先点击“连接服务器”按钮，输入后端服务器地址（默认情况下为http://localhost:8080），再输入`admin`作为用户名。当出现“连接成功”提示时，就可以开始游戏了。  
+你也可以在[`data\username.txt`](data\username.txt)中设置允许进行游戏的用户名名单。
 
-## Launch Frontend (Terminal)
-By default we use the `gpt-4o-mini` as the backbone LLM. You should provide your OpenAI API key in [`api_key.py`](api_key.py) first, then directly launch the [`terminal_frontend.py`](terminal_frontend.py):
-```
-python terminal_frontend.py
-```
-
-## Launch Frontend (mzgame)
-See [here](frontend/README.md) for details. You should still provide your OpenAI API key in [`api_key.py`](api_key.py) first.
-
-## Use Your Own Script Settings
-The [`data`](data) directory contains all the script settings required by the IBSEN. You may customize these files to use IBSEN in your own drama scenarios.
-- [`data/script`](data/script) includes the script settings of the whole stage. You can follow the format of [our script](data/script/hedda_gabler_modern.json) to create your own stage.
-- [`data/profile`](data/profile) includes the character profiles used by the actor agents. The profile file names should be the same as the character names defined in the script settings. You can follow the format of [our profile](data/profile/Hedda%20Gai.json) to create a new character profile.
-  - You can set the event monologue with an empty string; in this case, the actor agent will generate a monologue for the event.
-- If you have dialogue corpora for certain characters, you can place them in [`data/corpus`](data/corpus/) to provide references for the actor agents. The corpus file names should be the same as the character names defined in the script settings. You can follow the format of [our corpus](data/corpus/example.csv) to build the corpus.
-
-## Citation
-```bibtex
-@misc{han2024ibsendirectoractoragentcollaboration,
-      title={IBSEN: Director-Actor Agent Collaboration for Controllable and Interactive Drama Script Generation}, 
-      author={Senyu Han and Lu Chen and Li-Min Lin and Zhengshan Xu and Kai Yu},
-      year={2024},
-      eprint={2407.01093},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.01093}, 
-}
-```
+> 使用`gpt-4.1-nano`作为LLM时，你可能需要修改tiktoken的源文件使其能够调用该模型的tokenizer；`mzgame_frontend.py`的第20行提供了使其正常工作的方法。

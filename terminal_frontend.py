@@ -75,7 +75,7 @@ def prompt_guide_interview():
                 actor_name = actor_dict[number_input]
                 actor = hedda_stage.actors[actor_name]
                 actor.interview_history = copy.deepcopy(actor.dialogue_history.active_history)
-                actor.interview_history.append({"role": "Narration", "content": f"(Director has paused the play. Now please continue to answer the questions of user as the role of {actor.name}.)"})
+                actor.interview_history.append({"role": "旁白", "content": f"（导演暂停了演出。请以{actor.name}的身份，继续回答用户的问题。）"})
                 prompt_interview(actor)
             else:
                 raise ValueError

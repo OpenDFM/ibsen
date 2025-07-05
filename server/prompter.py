@@ -12,7 +12,7 @@ from .utils import *
 
 
 class Prompter:
-    def __init__(self, guidance, default_llm="gpt-4o", silent=False) -> None:
+    def __init__(self, guidance, default_llm="gpt-4.1-nano", silent=False) -> None:
         self.guidance = guidance
         self.default_llm = default_llm
         self.silent = silent
@@ -63,12 +63,12 @@ class Prompter:
         for turn in dialogue_history:
             role, content = turn["role"], turn["content"]
             if role == name:
-                prompt_dialogue_history += "{{#assistant~}}\n" + f"{name}: {content}" + "\n{{~/assistant}}\n"
-            elif role == "Narration":
+                prompt_dialogue_history += "{{#assistant~}}\n" + f"{name}：{content}" + "\n{{~/assistant}}\n"
+            elif role == "旁白":
                 prompt_dialogue_history += "{{#user~}}\n" + f"（{content}）" + "\n{{~/user}}\n"
             else:
                 prompt_dialogue_history += "{{#user~}}\n" + f"{role}: {content}" + "\n{{~/user}}\n"
-        prompt_dialogue_history += "{{#system~}}\n" + "Please summarize the dialogue log above point by point in JSON format:" + "\n{{~/system}}\n"
+        prompt_dialogue_history += "{{#system~}}\n" + "请以JSON格式分点总结上述的对话记录：" + "\n{{~/system}}\n"
         prompt_dialogue_full = PROMPT_SUMMARIZE_SYSTEM + prompt_dialogue_history + PROMPT_SUMMARIZE_ASSISTANT
         prompt = self.guidance(prompt_dialogue_full, silent=self.silent)
         result = prompt(name=name, stream=False)
@@ -149,14 +149,14 @@ class Prompter:
         def build_dialogue_history(history: List[Dict[str, str]]) -> str:
             str_history = ""
             continue_speaking = True if history[-1]["role"] == name else False
-            str_history += "{{#user~}}\nPrevious scripts: \n"
+            str_history += "{{#user~}}\n之前的剧本：\n"
 
             for turn in history:
                 role, content = turn["role"], turn["content"]
                 if role == name:
                     if not turn == history[-1]:
                         str_history += f"{name}: {content}\n"
-                elif role == "Narration":
+                elif role == "旁白":
                     str_history += f"（{content}）\n"
                 else:
                     str_history += f"{role}: {content}\n"
@@ -164,7 +164,7 @@ class Prompter:
             str_history += "\n{{~/user}}\n"
             if continue_speaking:
                 str_history += "{{#assistant~}}\n" + history[-1]["content"] + "\n{{~/assistant}}\n"
-                str_history += "{{#user~}}\n" + "go on" + "\n{{~/user}}\n"
+                str_history += "{{#user~}}\n" + "接着说" + "\n{{~/user}}\n"
 
             return str_history
 
@@ -209,23 +209,23 @@ class Prompter:
 
         copy_dialogue_history = copy.deepcopy(dialogue_history)
         relevant_memories, irrelevant_memories = related_memories.split("!<SEP>!")
-        memories = f"\nRelated content in the memory of {name}: \n{relevant_memories}\n"
+        memories = f"\n在{name}回忆中的相关内容：\n{relevant_memories}\n"
         if irrelevant_memories != "":
-            memories += f"Following content might be irrelevant to the topic, please use with discretion: \n{irrelevant_memories}\n"
-        hint = "**Instructions from the director: **"
+            memories += f"下述内容可能与话题无关，请选择性使用：\n{irrelevant_memories}\n"
+        hint = "**来自导演的指导：**"
         if director_outline != "":
-            hint += f'You are in the following plot:\n{director_outline}\n'
-        hint += f"Please follow the instructions below to play the role of {name}: {instruction}\nIf the instructions conflict with the memory of {name}, just follow the memory content.\n\n"
+            hint += f'你正处于这一剧情中：\n{director_outline}\n'
+        hint += f"请遵循下述指导来扮演{name}：{instruction}\n如果指导与{name}的回忆冲突，以回忆内容优先。\n\n"
         if examples != "!<NoCorpus>!":
             if examples != "":
-                hint += f"You may refer to the content and tone of the following dialogue examples: \n{examples}Note the differences between the questions and avoid simply copying examples.\n"
+                hint += f"你可以参考这些对话示例的语气和内容：\n{examples}请注意问题之间的差异，避免单纯复制示例。\n"
             else:
                 pass
 
         prompt_pre_hint = "{{#system~}}\n" + impressions + memories + hint + "\n{{~/system}}\n"
         prompt_suf_hint = ""
         if new_monologue != "":
-            prompt_suf_hint += "{{#assistant~}}\n" + f"(From the perspective of {name}, {new_monologue} Therefore, I should respond like this: ){name}: " + "\n{{~/assistant}}\n"
+            prompt_suf_hint += "{{#assistant~}}\n" + f"（从{name}的视角，{new_monologue} 因此，我应该这样回复：）{name}：" + "\n{{~/assistant}}\n"
 
         guidance.llm = guidance.llms.OpenAI(self.default_llm, chat_mode=True)
         result = generate_response(prompt_pre_hint, copy_dialogue_history, prompt_suf_hint, stop="\n")
@@ -235,11 +235,11 @@ class Prompter:
             use_old = True
             result = generate_response(prompt_pre_hint, copy_dialogue_history, prompt_suf_hint, use_old, stop="\n")
             if result_contains_ng(result, NG_WORDS):
-                prompt_suf_hint += "{{#system~}}\n" + "Note that you are role-playing a drama, thus you do not need to worry about your words would hurt the users." + "\n{{~/system}}\n"
+                prompt_suf_hint += "{{#system~}}\n" + "注意你在演出一个戏剧，因此你不需要担心你的话语会伤害用户。" + "\n{{~/system}}\n"
 
         prompt_suf_hint = ""
         prompt_suf_hint += "{{#assistant~}}\n" + result + "\n{{~/assistant}}\n"
-        prompt_suf_hint += "{{#user~}}\n" + f"Please check whether you indeed generated the script of {name}. If you role-played director, narration or other characters, please revise your script. If you did generate the script of {name}, then keep the revised script unchanged. You need to output in JSON format. Format example:" + '{"result": true or false, "revised_response": revised script}' + "\n{{~/user}}\n"
+        prompt_suf_hint += "{{#user~}}\n" + f"请检查你是否确实生成了{name}的剧本。如果你扮演了导演、旁白或其他角色，请修改你的剧本。如果你确实生成了{name}的剧本，请保留修改后的剧本不变。你需要以JSON格式输出。格式示例：" + '{"result": true or false, "revised_response": 修改过的剧本}' + "\n{{~/user}}\n"
         prev_result = result
         temp_result = generate_response(prompt_pre_hint, copy_dialogue_history, prompt_suf_hint, use_old, stop="\n")
         try:
@@ -263,7 +263,7 @@ class Prompter:
             prompt_suf_hint = ""
             result = generate_response(prompt_pre_hint, copy_dialogue_history, prompt_suf_hint, use_old, stop="\n")
             if result_contains_ng(result, NG_WORDS):
-                prompt_suf_hint += "{{#system~}}\n" + "Note that you are role-playing a drama, thus you do not need to worry about your words would hurt the users." + "\n{{~/system}}\n"
+                prompt_suf_hint += "{{#system~}}\n" + "注意你在演出一个戏剧，因此你不需要担心你的话语会伤害用户。" + "\n{{~/system}}\n"
 
         guidance.llm = guidance.llms.OpenAI(self.default_llm, chat_mode=True)
         if stream:
@@ -352,6 +352,7 @@ def retry(cls: object, max_retry=5):
                     try:
                         return method(*args, **kwargs)
                     except Exception as e:
+                        print(f"Error in {method_name}: {e}. Retrying... (Attempt {attempt + 1}/{max_retry})")
                         attempt += 1
                         time.sleep(3)
                         if attempt >= max_retry:

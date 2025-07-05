@@ -1,5 +1,7 @@
 from collections import deque
 from typing import Deque, Dict, List
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .actor import GenerativeActor
 from .prompter import Prompter
@@ -45,28 +47,32 @@ class GenerativeDirector:
         if player not in self.players:
             self.players.append(player)
             if self.active and notify:
-                self.add_dialogue_log({"role": "Narration", "content": self.player_in})
+                self.add_dialogue_log({"role": "旁白", "content": self.player_in})
                 self.interrupted = True
 
     def remove_player(self, player: str, notify=True):
         try:
             self.players.remove(player)
             if self.active and notify:
-                self.add_dialogue_log({"role": "Narration", "content": self.player_out})
+                self.add_dialogue_log({"role": "旁白", "content": self.player_out})
                 self.interrupted = True
         except ValueError:
             return
         
     def add_dialogue_log(self, log: Dict[str, str]):
-        if self.active:
-            self.dialogue_logger.add_log(log)
-            self.eval_dialogue_history.append(log)
-            for actor in self.actors.values():
-                summarized_history = actor.dialogue_history.add_log(log)
-                for summary in summarized_history:
-                    actor.add_memory(summary, force_influence=True)
-                if len(summarized_history) > 0:
-                    actor.update_character_impression(summarized_history)
+        if not self.active:
+            return
+        self.dialogue_logger.add_log(log)
+        self.eval_dialogue_history.append(log)
+        def _handle_one_actor(actor: GenerativeActor):
+            summaries = actor.dialogue_history.add_log(log)
+            for summary in summaries:
+                actor.add_memory(summary, force_influence=True)
+            if summaries:
+                actor.update_character_impression(summaries)
+
+        with ThreadPoolExecutor(max_workers=len(self.actors)) as executor:
+            executor.map(_handle_one_actor, self.actors.values())
 
     def generate_new_script(self, lines=5):
         list_characters = [actor for actor in self.actors] + self.players
@@ -85,15 +91,15 @@ class GenerativeDirector:
 
         related_impressions = []
         for actor in self.actors.values():
-            impressions = f"Impressions of {actor.name} on the characters below:\n"
+            impressions = f"{actor.name}对下述角色的印象：\n"
             result = actor.get_impressions_of(related_characters)
             for name, impression in result.items():
-                impressions += f"On {name}: {impression}\n"
+                impressions += f"对{name}：{impression}\n"
             related_impressions.append(impressions)
 
         related_memories = []
         for actor in self.actors.values():
-            memories = f"Character profile of {actor.name}:\n"
+            memories = f"{actor.name}的角色资料：\n"
             documents = actor.retriever.get_relevant_documents(current_goal, current_time=actor.current_datetime, top_k=3)
             str_documents = parse_document_to_str(documents, return_monologue=False).split("!<SEP>!")[0]
             memories += str_documents
@@ -126,12 +132,12 @@ class GenerativeDirector:
     def direct_next_turn(self) -> Dict[str, str]:
         if not self.completed:
             if self.interrupted or len(self.current_scripts) == 0:
-                new_scripts = self.generate_new_script(lines=5)
+                new_scripts = self.generate_new_script(lines=6)
                 print(new_scripts)
                 self.current_scripts = deque(new_scripts)
 
                 if len(self.current_scripts) == 0:
-                    new_scripts = self.generate_new_script(lines=4)
+                    new_scripts = self.generate_new_script(lines=5)
                     self.current_scripts = deque(new_scripts)
                 assert len(self.current_scripts) != 0, "New script has length 0"
         self.interrupted = False
@@ -153,7 +159,7 @@ class GenerativeDirector:
             revised_next_script["content"] = next_content
         elif next_role in self.players:
             revised_next_script["content"] = "!<Await>!"
-        elif next_role == "Narration":
+        elif next_role == "旁白":
             pass
         else:
             pass
@@ -161,7 +167,7 @@ class GenerativeDirector:
         
         return revised_next_script
     
-    def check_and_update_goal(self, min=5, max=8):
+    def check_and_update_goal(self, min=6, max=9):
         list_characters = [actor for actor in self.actors] + self.players
         self.current_goal_counter += 1
         if self.current_goal_counter < min:
